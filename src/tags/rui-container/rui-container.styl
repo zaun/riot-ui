@@ -1,0 +1,35 @@
+@media (min-width: 544px)
+  :scope
+    max-width 540px
+
+@media (min-width: 768px)
+  :scope
+    max-width 720px
+
+@media (min-width: 992px)
+  :scope
+    max-width  940px
+
+@media (min-width: 1200px)
+  :scope
+    max-width 1170px
+
+:scope
+  display block
+  position relative
+  box-sizing border-box
+  padding-right 1em
+  padding-left 1em
+  margin-right auto
+  margin-left auto
+
+// Always clear the contents as ww have no control over it.
+:scope::after
+  display table
+  clear both
+  content ""
+
+/* Support the rui-nav inside a container */
+  :scope .navbar-spacer
+    margin-right -1em
+    margin-left -1em

@@ -1,0 +1,121 @@
+for $num in (1..100)
+  :scope[xs={'"' + $num + '"'}]
+    width: $num + '%'
+for $num in (1..100)
+  :scope[sm={'"' + $num + '"'}]
+    width: $num + '%'
+for $num in (1..100)
+  :scope[md={'"' + $num + '"'}]
+    width: $num + '%'
+for $num in (1..100)
+  :scope[lg={'"' + $num + '"'}]
+    width: $num + '%'
+for $num in (1..100)
+  :scope[xl={'"' + $num + '"'}]
+    width: $num + '%'
+:scope[xs-hidden]
+  display none
+:scope[sm-hidden]
+  display none
+:scope[md-hidden]
+  display none
+:scope[lg-hidden]
+  display none
+:scope[xl-hidden]
+  display none
+
+@media (min-width: 544px)
+  for $num in (1..100)
+    :scope[xs={'"' + $num + '"'}]
+      width: $num + '%'
+  :scope[xs-hidden]
+    display block
+  :scope[sm-hidden]
+    display none
+  :scope[md-hidden]
+    display none
+  :scope[lg-hidden]
+    display none
+  :scope[xl-hidden]
+    display none
+
+@media (min-width: 768px)
+  for $num in (1..100)
+    :scope[xs={'"' + $num + '"'}]
+      width: $num + '%'
+  for $num in (1..100)
+    :scope[sm={'"' + $num + '"'}]
+      width: $num + '%'
+  :scope[xs-hidden]
+    display block
+  :scope[sm-hidden]
+    display block
+  :scope[md-hidden]
+    display none
+  :scope[lg-hidden]
+    display none
+  :scope[xl-hidden]
+    display none
+
+@media (min-width: 992px)
+  for $num in (1..100)
+    :scope[xs={'"' + $num + '"'}]
+      width: $num + '%'
+  for $num in (1..100)
+    :scope[sm={'"' + $num + '"'}]
+      width: $num + '%'
+  for $num in (1..100)
+    :scope[md={'"' + $num + '"'}]
+      width: $num + '%'
+  :scope[xs-hidden]
+    display block
+  :scope[sm-hidden]
+    display block
+  :scope[md-hidden]
+    display block
+  :scope[lg-hidden]
+    display none
+  :scope[xl-hidden]
+    display none
+
+@media (min-width: 1200px)
+  for $num in (1..100)
+    :scope[xs={'"' + $num + '"'}]
+      width: $num + '%'
+  for $num in (1..100)
+    :scope[sm={'"' + $num + '"'}]
+      width: $num + '%'
+  for $num in (1..100)
+    :scope[md={'"' + $num + '"'}]
+      width: $num + '%'
+  for $num in (1..100)
+    :scope[lg={'"' + $num + '"'}]
+      width: $num + '%'
+  :scope[xs-hidden]
+    display block
+  :scope[sm-hidden]
+    display block
+  :scope[md-hidden]
+    display block
+  :scope[lg-hidden]
+    display block
+  :scope[xl-hidden]
+    display none
+
+
+:scope
+  position relative
+  display block
+  float left
+  box-sizing border-box
+  min-height 1px
+  padding-right 0.9375rem
+  padding-left 0.9375rem
+  width 100%
+
+
+// Always clear the contents as ww have no control over it.
+:scope::after
+  display: table;
+  clear: both;
+  content: "";

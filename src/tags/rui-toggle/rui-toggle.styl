@@ -1,0 +1,110 @@
+@require ('../color.styl')
+
+:scope
+  position relative
+  display inline-block
+  cursor pointer
+  box-sizing border-box
+  border-radius .25rem
+  border 1px solid
+  border-color rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25)
+  text-align left
+  overflow hidden
+  vertical-align middle
+  min-width 100px
+  margin .3rem 0
+
+  div
+    position relative
+    display block
+    box-sizing border-box
+
+  span
+    position relative
+    display inline-block
+    padding .375rem 1rem
+    font-size 1rem
+    font-weight 400
+    line-height 1.5
+    width 33%
+    height 100%
+    white-space nowrap
+    box-sizing border-box
+    text-align center
+
+    &.knob
+      width 34%
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      color: #333;
+      background-color darken($color-disabled, 10%)
+      color #000
+
+    &.right
+      background-color $color-disabled
+      color #000
+
+  .switch-animate
+    width 150%
+    transition left 0.1s
+    font-size 0
+    white-space nowrap
+
+  .switch-on
+    left 0%
+
+  .switch-off
+    left -50%
+
+
+:scope[option="primary"]
+  border-color $color-primary
+
+  .left
+    background-color $color-primary
+    color #fff
+
+
+:scope[option="secondary"]
+  border-color $color-secondary
+
+  .left
+    background-color $color-secondary
+    color #000
+
+
+:scope[option="success"]
+  border-color $color-success
+
+  .left
+    background-color $color-success
+    color #fff
+
+
+:scope[option="info"]
+  border-color $color-info
+
+  .left
+    background-color $color-info
+    color #fff
+
+
+:scope[option="warning"]
+  border-color $color-warning
+
+  .left
+    background-color $color-warning
+    color #fff
+
+
+:scope[option="danger"]
+  border-color $color-danger
+
+  .left
+    background-color $color-danger
+    color #fff
+
+
+:scope[data-disabled="true"]
+  cursor not-allowed
+  opacity .65

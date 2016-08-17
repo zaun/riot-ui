@@ -1,0 +1,41 @@
+:scope
+  color white
+  line-height 4em
+  font-size 1em
+  font-weight 300
+  float left
+  padding-left 0.5rem
+  padding-right 0.5rem
+  cursor default
+
+  .eventWrapper
+    display block
+    margin 0
+    padding 0
+    width 100%
+    height 100%
+
+:scope:first-child
+  margin-left -0.5rem
+
+:scope:last-child
+  margin-right -0.5rem
+
+:scope[type="brand"]
+  line-height 2.6667em
+  font-size 1.5em
+  font-weight 500
+
+:scope[onclick]
+:scope[href]
+  cursor pointer
+
+:scope[onclick]:hover
+:scope[href]:hover
+  background-color #444
+
+:scope[active]
+  background-color #333
+
+:scope[align="right"]
+  float right

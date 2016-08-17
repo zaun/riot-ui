@@ -1,0 +1,56 @@
+{
+  "name": "riot-ui",
+  "version": "0.0.1",
+  "description": "A set of UI related tags for riotjs",
+  "author": "Justin Zaun <justin.zaun@gmail.com>",
+  "contributors": [
+    {
+      "name": "Foo Bar",
+      "email": "foo.bar@example.com"
+    }
+  ],
+  "bin": {
+    "module-name": "./bin/module-name"
+  },
+  "scripts": {
+    "gh-pages-travis": "gh-pages-travis"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaun/riot-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/zaun/riot-ui/issues"
+  },
+  "keywords": [
+    "riotjs",
+    "ui"
+  ],
+  "dependencies": {
+    "riot-mixin-pack": "^0.1.7",
+    "syntaxhighlighter": "^4.0.1"
+  },
+  "devDependencies": {
+    "browser-sync": "*",
+    "babel-eslint": "*",
+    "gulp": "*",
+    "gulp-filelist": "github:cjroth/gulp-filelist",
+    "gulp-flatten": "*",
+    "gulp-htmlhint": "*",
+    "gulp-insert": "*",
+    "gulp-eslint": "*",
+    "gulp-gh-pages": "*",
+    "gulp-load-plugins": "*",
+    "gulp-preprocess": "*",
+    "gulp-riot": "*",
+    "gulp-stylus": "*",
+    "rollup-stream": "*",
+    "rollup-plugin-babel": "*",
+    "rollup-plugin-commonjs": "*",
+    "rollup-plugin-node-resolve": "*",
+    "rollup-plugin-riot": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*"
+  },
+  "license": "MIT"
+}
