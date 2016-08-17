@@ -40,6 +40,24 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
   <rui-header>Table of Contents</rui-header>
   <p>The <code>rui-toc</code> automatic table of contents based on the <code>rui-header</code> tags on the page.</p>
 
+  <rui-panel>
+    <rui-panel-container>
+      <rui-toc></rui-toc>
+    </rui-panel-container>
+    <rui-panel-container>
+      <rui-code>
+        &lt;rui-toc&gt;&lt;/rui-toc&gt;
+      </rui-code>
+    </rui-panel-container>
+  </rui-panel>
+
+  <rui-panel option="warning">
+    <ul>
+      <li>Link to header as anchor</li>
+      <li>Auto highlight current section</li>
+    </ul>
+  </rui-panel>
+
   <script>
     this.mixin(parentScope).mixin(domEvent);
   </script>
