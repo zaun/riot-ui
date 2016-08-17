@@ -100,6 +100,28 @@
 
   });
 
+  riot.tag2('rui-checkbox', '<span onclick="{click}" data-checked="{checked}" data-disabled="{disabled}"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 381.39 381.39"> <g> <path class="box" d="M349.607,0H31.782C14.239,0,0,14.239,0,31.782v317.825c0,17.544,14.239,31.782,31.782,31.782h317.825c17.544,0,31.782-14.239,31.782-31.782V31.782C381.39,14.239,367.151,0,349.607,0z M349.607,349.607H31.782V31.782h317.825V349.607z"></path> <path class="check" d="M127.13,286.042h127.13c17.544,0,31.782-14.239,31.782-31.782V127.13c0-17.544-14.239-31.782-31.782-31.782H127.13c-17.544,0-31.782,14.239-31.782,31.782v127.13C95.347,271.804,109.586,286.042,127.13,286.042z"></path> </g> </svg> <yield></yield> <input type="hidden" value="{checked}"> </span>', 'rui-checkbox,[riot-tag="rui-checkbox"],[data-is="rui-checkbox"]{ display: inline-block; position: relative; vertical-align: middle; cursor: pointer; } rui-checkbox span,[riot-tag="rui-checkbox"] span,[data-is="rui-checkbox"] span{ padding: 0.375rem 1rem; font-size: 1rem; font-weight: 400; line-height: 1.5; box-sizing: border-box; vertical-align: middle; box-sizing: border-box; } rui-checkbox span svg,[riot-tag="rui-checkbox"] span svg,[data-is="rui-checkbox"] span svg{ display: inline-block; width: 1em; height: 100%; } rui-checkbox span svg .check,[riot-tag="rui-checkbox"] span svg .check,[data-is="rui-checkbox"] span svg .check{ visibility: hidden; } rui-checkbox span[data-checked="true"] .check,[riot-tag="rui-checkbox"] span[data-checked="true"] .check,[data-is="rui-checkbox"] span[data-checked="true"] .check{ visibility: visible; } rui-checkbox[size="sm"] span,[riot-tag="rui-checkbox"][size="sm"] span,[data-is="rui-checkbox"][size="sm"] span{ padding: 0.25rem 0.75rem; font-size: 0.875rem; line-height: 1.5; border-radius: 0.2rem; } rui-checkbox[size="lg"] span,[riot-tag="rui-checkbox"][size="lg"] span,[data-is="rui-checkbox"][size="lg"] span{ padding: 0.75rem 1.25rem; font-size: 1.25rem; line-height: 1.333333; border-radius: 0.3rem; } rui-checkbox[option="primary"] svg .box,[riot-tag="rui-checkbox"][option="primary"] svg .box,[data-is="rui-checkbox"][option="primary"] svg .box{ fill: #013a6c; } rui-checkbox[option="primary"] svg .check,[riot-tag="rui-checkbox"][option="primary"] svg .check,[data-is="rui-checkbox"][option="primary"] svg .check{ fill: #0275d8; } rui-checkbox[option="secondary"] svg .box,[riot-tag="rui-checkbox"][option="secondary"] svg .box,[data-is="rui-checkbox"][option="secondary"] svg .box{ fill: #797979; } rui-checkbox[option="secondary"] svg .check,[riot-tag="rui-checkbox"][option="secondary"] svg .check,[data-is="rui-checkbox"][option="secondary"] svg .check{ fill: #797979; } rui-checkbox[option="success"] svg .box,[riot-tag="rui-checkbox"][option="success"] svg .box,[data-is="rui-checkbox"][option="success"] svg .box{ fill: #2a602a; } rui-checkbox[option="success"] svg .check,[riot-tag="rui-checkbox"][option="success"] svg .check,[data-is="rui-checkbox"][option="success"] svg .check{ fill: #5cb85c; } rui-checkbox[option="info"] svg .box,[riot-tag="rui-checkbox"][option="info"] svg .box,[data-is="rui-checkbox"][option="info"] svg .box{ fill: #1a6a82; } rui-checkbox[option="info"] svg .check,[riot-tag="rui-checkbox"][option="info"] svg .check,[data-is="rui-checkbox"][option="info"] svg .check{ fill: #5bc0de; } rui-checkbox[option="warning"] svg .box,[riot-tag="rui-checkbox"][option="warning"] svg .box,[data-is="rui-checkbox"][option="warning"] svg .box{ fill: #935b0c; } rui-checkbox[option="warning"] svg .check,[riot-tag="rui-checkbox"][option="warning"] svg .check,[data-is="rui-checkbox"][option="warning"] svg .check{ fill: #f0ad4e; } rui-checkbox[option="danger"] svg .box,[riot-tag="rui-checkbox"][option="danger"] svg .box,[data-is="rui-checkbox"][option="danger"] svg .box{ fill: #7a1d1a; } rui-checkbox[option="danger"] svg .check,[riot-tag="rui-checkbox"][option="danger"] svg .check,[data-is="rui-checkbox"][option="danger"] svg .check{ fill: #d9534f; } rui-checkbox[data-block="true"],[riot-tag="rui-checkbox"][data-block="true"],[data-is="rui-checkbox"][data-block="true"]{ display: block; } rui-checkbox span[data-disabled="true"],[riot-tag="rui-checkbox"] span[data-disabled="true"],[data-is="rui-checkbox"] span[data-disabled="true"]{ cursor: not-allowed; opacity: 0.65; color: #000; }', '', function(opts) {
+      var self = this;
+      self.mixin(parentScope).mixin(domEvent);
+      self.disabled = undefined;
+      self.checked = false;
+
+      self.click = e => {
+        e.stopPropagation();
+        if (self.disabled) {
+          return;
+        }
+        self.root.value = self.value = self.checked = !self.checked;
+        self.triggerDomEvent('click');
+      };
+
+      self.on('update', e => {
+        self.disabled = opts.hasOwnProperty('disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
+        self.root.querySelector('span').setAttribute('data-disabled', this.disabled);
+      });
+
+  });
+
   riot.tag2('rui-button', '<div onclick="{click}"><yield></yield></div>', 'rui-button,[riot-tag="rui-button"],[data-is="rui-button"]{ display: inline-block; padding: 0.375rem 1rem; font-size: 1rem; font-weight: 400; line-height: 1.5; text-align: center; white-space: nowrap; vertical-align: middle; cursor: pointer; user-select: none; border: 1px solid #ccc; border-radius: 0.25rem; margin: 0.3rem 0; touch-action: manipulation; text-transform: none; } rui-button:active,[riot-tag="rui-button"]:active,[data-is="rui-button"]:active,rui-button[data-active="true"],[riot-tag="rui-button"][data-active="true"],[data-is="rui-button"][data-active="true"]{ border-color: #858585; } rui-button:not([data-disabled="true"]):hover,[riot-tag="rui-button"]:not([data-disabled="true"]):hover,[data-is="rui-button"]:not([data-disabled="true"]):hover{ border-color: #a3a3a3; } rui-button[size="sm"],[riot-tag="rui-button"][size="sm"],[data-is="rui-button"][size="sm"]{ padding: 0.25rem 0.75rem; font-size: 0.875rem; line-height: 1.5; border-radius: 0.2rem; } rui-button[size="lg"],[riot-tag="rui-button"][size="lg"],[data-is="rui-button"][size="lg"]{ padding: 0.75rem 1.25rem; font-size: 1.25rem; line-height: 1.333333; border-radius: 0.3rem; } rui-button[option="primary"],[riot-tag="rui-button"][option="primary"],[data-is="rui-button"][option="primary"]{ background-color: #0275d8; border-color: #013a6c; color: #fff; } rui-button[option="primary"]:active,[riot-tag="rui-button"][option="primary"]:active,[data-is="rui-button"][option="primary"]:active,rui-button[option="primary"][data-active="true"],[riot-tag="rui-button"][option="primary"][data-active="true"],[data-is="rui-button"][option="primary"][data-active="true"]{ background-color: #014c8c; } rui-button[option="primary"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="primary"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="primary"]:not([data-disabled="true"]):hover{ background-color: #025ead; } rui-button[option="primary-o"],[riot-tag="rui-button"][option="primary-o"],[data-is="rui-button"][option="primary-o"]{ background-color: #fff; border-color: #0275d8; color: #0275d8; } rui-button[option="primary-o"]:active,[riot-tag="rui-button"][option="primary-o"]:active,[data-is="rui-button"][option="primary-o"]:active,rui-button[option="primary-o"][data-active="true"],[riot-tag="rui-button"][option="primary-o"][data-active="true"],[data-is="rui-button"][option="primary-o"][data-active="true"]{ background-color: #014c8c; border-color: #013a6c; color: #fff; } rui-button[option="primary-o"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="primary-o"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="primary-o"]:not([data-disabled="true"]):hover{ background-color: #025ead; border-color: #013a6c; color: #fff; } rui-button[option="secondary"],[riot-tag="rui-button"][option="secondary"],[data-is="rui-button"][option="secondary"]{ background-color: #f3f3f3; border-color: #797979; color: #000; } rui-button[option="secondary"]:active,[riot-tag="rui-button"][option="secondary"]:active,[data-is="rui-button"][option="secondary"]:active,rui-button[option="secondary"][data-active="true"],[riot-tag="rui-button"][option="secondary"][data-active="true"],[data-is="rui-button"][option="secondary"][data-active="true"]{ background-color: #9e9e9e; } rui-button[option="secondary"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="secondary"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="secondary"]:not([data-disabled="true"]):hover{ background-color: #c2c2c2; } rui-button[option="secondary-o"],[riot-tag="rui-button"][option="secondary-o"],[data-is="rui-button"][option="secondary-o"]{ background-color: #fff; border-color: #797979; color: #000; } rui-button[option="secondary-o"]:active,[riot-tag="rui-button"][option="secondary-o"]:active,[data-is="rui-button"][option="secondary-o"]:active,rui-button[option="secondary-o"][data-active="true"],[riot-tag="rui-button"][option="secondary-o"][data-active="true"],[data-is="rui-button"][option="secondary-o"][data-active="true"]{ background-color: #9e9e9e; color: #000; } rui-button[option="secondary-o"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="secondary-o"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="secondary-o"]:not([data-disabled="true"]):hover{ background-color: #c2c2c2; color: #000; } rui-button[option="success"],[riot-tag="rui-button"][option="success"],[data-is="rui-button"][option="success"]{ background-color: #5cb85c; border-color: #2a602a; color: #fff; } rui-button[option="success"]:active,[riot-tag="rui-button"][option="success"]:active,[data-is="rui-button"][option="success"]:active,rui-button[option="success"][data-active="true"],[riot-tag="rui-button"][option="success"][data-active="true"],[data-is="rui-button"][option="success"][data-active="true"]{ background-color: #367d36; } rui-button[option="success"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="success"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="success"]:not([data-disabled="true"]):hover{ background-color: #439a43; } rui-button[option="success-o"],[riot-tag="rui-button"][option="success-o"],[data-is="rui-button"][option="success-o"]{ background-color: #fff; border-color: #5cb85c; color: #5cb85c; } rui-button[option="success-o"]:active,[riot-tag="rui-button"][option="success-o"]:active,[data-is="rui-button"][option="success-o"]:active,rui-button[option="success-o"][data-active="true"],[riot-tag="rui-button"][option="success-o"][data-active="true"],[data-is="rui-button"][option="success-o"][data-active="true"]{ background-color: #367d36; border-color: #2a602a; color: #fff; } rui-button[option="success-o"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="success-o"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="success-o"]:not([data-disabled="true"]):hover{ background-color: #439a43; border-color: #2a602a; color: #fff; } rui-button[option="info"],[riot-tag="rui-button"][option="info"],[data-is="rui-button"][option="info"]{ background-color: #5bc0de; border-color: #1a6a82; color: #fff; } rui-button[option="info"]:active,[riot-tag="rui-button"][option="info"]:active,[data-is="rui-button"][option="info"]:active,rui-button[option="info"][data-active="true"],[riot-tag="rui-button"][option="info"][data-active="true"],[data-is="rui-button"][option="info"][data-active="true"]{ background-color: #228aa9; } rui-button[option="info"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="info"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="info"]:not([data-disabled="true"]):hover{ background-color: #2aaad0; } rui-button[option="info-o"],[riot-tag="rui-button"][option="info-o"],[data-is="rui-button"][option="info-o"]{ background-color: #fff; border-color: #5bc0de; color: #5bc0de; } rui-button[option="info-o"]:active,[riot-tag="rui-button"][option="info-o"]:active,[data-is="rui-button"][option="info-o"]:active,rui-button[option="info-o"][data-active="true"],[riot-tag="rui-button"][option="info-o"][data-active="true"],[data-is="rui-button"][option="info-o"][data-active="true"]{ background-color: #228aa9; border-color: #1a6a82; color: #fff; } rui-button[option="info-o"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="info-o"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="info-o"]:not([data-disabled="true"]):hover{ background-color: #2aaad0; border-color: #1a6a82; color: #fff; } rui-button[option="warning"],[riot-tag="rui-button"][option="warning"],[data-is="rui-button"][option="warning"]{ background-color: #f0ad4e; border-color: #935b0c; color: #fff; } rui-button[option="warning"]:active,[riot-tag="rui-button"][option="warning"]:active,[data-is="rui-button"][option="warning"]:active,rui-button[option="warning"][data-active="true"],[riot-tag="rui-button"][option="warning"][data-active="true"],[data-is="rui-button"][option="warning"][data-active="true"]{ background-color: #bf7610; } rui-button[option="warning"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="warning"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="warning"]:not([data-disabled="true"]):hover{ background-color: #eb9214; } rui-button[option="warning-o"],[riot-tag="rui-button"][option="warning-o"],[data-is="rui-button"][option="warning-o"]{ background-color: #fff; border-color: #f0ad4e; color: #f0ad4e; } rui-button[option="warning-o"]:active,[riot-tag="rui-button"][option="warning-o"]:active,[data-is="rui-button"][option="warning-o"]:active,rui-button[option="warning-o"][data-active="true"],[riot-tag="rui-button"][option="warning-o"][data-active="true"],[data-is="rui-button"][option="warning-o"][data-active="true"]{ background-color: #bf7610; border-color: #935b0c; color: #fff; } rui-button[option="warning-o"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="warning-o"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="warning-o"]:not([data-disabled="true"]):hover{ background-color: #eb9214; border-color: #935b0c; color: #fff; } rui-button[option="danger"],[riot-tag="rui-button"][option="danger"],[data-is="rui-button"][option="danger"]{ background-color: #d9534f; border-color: #7a1d1a; color: #fff; } rui-button[option="danger"]:active,[riot-tag="rui-button"][option="danger"]:active,[data-is="rui-button"][option="danger"]:active,rui-button[option="danger"][data-active="true"],[riot-tag="rui-button"][option="danger"][data-active="true"],[data-is="rui-button"][option="danger"][data-active="true"]{ background-color: #9e2622; } rui-button[option="danger"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="danger"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="danger"]:not([data-disabled="true"]):hover{ background-color: #c32e2a; } rui-button[option="danger-o"],[riot-tag="rui-button"][option="danger-o"],[data-is="rui-button"][option="danger-o"]{ background-color: #fff; border-color: #d9534f; color: #d9534f; } rui-button[option="danger-o"]:active,[riot-tag="rui-button"][option="danger-o"]:active,[data-is="rui-button"][option="danger-o"]:active,rui-button[option="danger-o"][data-active="true"],[riot-tag="rui-button"][option="danger-o"][data-active="true"],[data-is="rui-button"][option="danger-o"][data-active="true"]{ background-color: #9e2622; border-color: #7a1d1a; color: #fff; } rui-button[option="danger-o"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="danger-o"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="danger-o"]:not([data-disabled="true"]):hover{ background-color: #c32e2a; border-color: #7a1d1a; color: #fff; } rui-button[option="link"],[riot-tag="rui-button"][option="link"],[data-is="rui-button"][option="link"]{ background-color: #fff; border-color: #fff; color: #0275d8; border-radius: 0; } rui-button[option="link"]:not([data-disabled="true"]):hover,[riot-tag="rui-button"][option="link"]:not([data-disabled="true"]):hover,[data-is="rui-button"][option="link"]:not([data-disabled="true"]):hover{ color: $color-primary-hover; text-decoration: underline; } rui-button[data-block="true"],[riot-tag="rui-button"][data-block="true"],[data-is="rui-button"][data-block="true"]{ display: block; } rui-button[data-disabled="true"],[riot-tag="rui-button"][data-disabled="true"],[data-is="rui-button"][data-disabled="true"]{ cursor: not-allowed; opacity: 0.65; background-color: #eceeef; color: #000; }', '', function(opts) {
       var self = this;
       self.mixin(parentScope).mixin(domEvent);
@@ -141,28 +163,6 @@
         self.root.setAttribute('data-active', this.active);
         self.root.setAttribute('data-block', this.block);
         self.root.setAttribute('data-disabled', this.disabled);
-      });
-
-  });
-
-  riot.tag2('rui-checkbox', '<span onclick="{click}" data-checked="{checked}" data-disabled="{disabled}"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 381.39 381.39"> <g> <path class="box" d="M349.607,0H31.782C14.239,0,0,14.239,0,31.782v317.825c0,17.544,14.239,31.782,31.782,31.782h317.825c17.544,0,31.782-14.239,31.782-31.782V31.782C381.39,14.239,367.151,0,349.607,0z M349.607,349.607H31.782V31.782h317.825V349.607z"></path> <path class="check" d="M127.13,286.042h127.13c17.544,0,31.782-14.239,31.782-31.782V127.13c0-17.544-14.239-31.782-31.782-31.782H127.13c-17.544,0-31.782,14.239-31.782,31.782v127.13C95.347,271.804,109.586,286.042,127.13,286.042z"></path> </g> </svg> <yield></yield> <input type="hidden" value="{checked}"> </span>', 'rui-checkbox,[riot-tag="rui-checkbox"],[data-is="rui-checkbox"]{ display: inline-block; position: relative; vertical-align: middle; cursor: pointer; } rui-checkbox span,[riot-tag="rui-checkbox"] span,[data-is="rui-checkbox"] span{ padding: 0.375rem 1rem; font-size: 1rem; font-weight: 400; line-height: 1.5; box-sizing: border-box; vertical-align: middle; box-sizing: border-box; } rui-checkbox span svg,[riot-tag="rui-checkbox"] span svg,[data-is="rui-checkbox"] span svg{ display: inline-block; width: 1em; height: 100%; } rui-checkbox span svg .check,[riot-tag="rui-checkbox"] span svg .check,[data-is="rui-checkbox"] span svg .check{ visibility: hidden; } rui-checkbox span[data-checked="true"] .check,[riot-tag="rui-checkbox"] span[data-checked="true"] .check,[data-is="rui-checkbox"] span[data-checked="true"] .check{ visibility: visible; } rui-checkbox[size="sm"] span,[riot-tag="rui-checkbox"][size="sm"] span,[data-is="rui-checkbox"][size="sm"] span{ padding: 0.25rem 0.75rem; font-size: 0.875rem; line-height: 1.5; border-radius: 0.2rem; } rui-checkbox[size="lg"] span,[riot-tag="rui-checkbox"][size="lg"] span,[data-is="rui-checkbox"][size="lg"] span{ padding: 0.75rem 1.25rem; font-size: 1.25rem; line-height: 1.333333; border-radius: 0.3rem; } rui-checkbox[option="primary"] svg .box,[riot-tag="rui-checkbox"][option="primary"] svg .box,[data-is="rui-checkbox"][option="primary"] svg .box{ fill: #013a6c; } rui-checkbox[option="primary"] svg .check,[riot-tag="rui-checkbox"][option="primary"] svg .check,[data-is="rui-checkbox"][option="primary"] svg .check{ fill: #0275d8; } rui-checkbox[option="secondary"] svg .box,[riot-tag="rui-checkbox"][option="secondary"] svg .box,[data-is="rui-checkbox"][option="secondary"] svg .box{ fill: #797979; } rui-checkbox[option="secondary"] svg .check,[riot-tag="rui-checkbox"][option="secondary"] svg .check,[data-is="rui-checkbox"][option="secondary"] svg .check{ fill: #797979; } rui-checkbox[option="success"] svg .box,[riot-tag="rui-checkbox"][option="success"] svg .box,[data-is="rui-checkbox"][option="success"] svg .box{ fill: #2a602a; } rui-checkbox[option="success"] svg .check,[riot-tag="rui-checkbox"][option="success"] svg .check,[data-is="rui-checkbox"][option="success"] svg .check{ fill: #5cb85c; } rui-checkbox[option="info"] svg .box,[riot-tag="rui-checkbox"][option="info"] svg .box,[data-is="rui-checkbox"][option="info"] svg .box{ fill: #1a6a82; } rui-checkbox[option="info"] svg .check,[riot-tag="rui-checkbox"][option="info"] svg .check,[data-is="rui-checkbox"][option="info"] svg .check{ fill: #5bc0de; } rui-checkbox[option="warning"] svg .box,[riot-tag="rui-checkbox"][option="warning"] svg .box,[data-is="rui-checkbox"][option="warning"] svg .box{ fill: #935b0c; } rui-checkbox[option="warning"] svg .check,[riot-tag="rui-checkbox"][option="warning"] svg .check,[data-is="rui-checkbox"][option="warning"] svg .check{ fill: #f0ad4e; } rui-checkbox[option="danger"] svg .box,[riot-tag="rui-checkbox"][option="danger"] svg .box,[data-is="rui-checkbox"][option="danger"] svg .box{ fill: #7a1d1a; } rui-checkbox[option="danger"] svg .check,[riot-tag="rui-checkbox"][option="danger"] svg .check,[data-is="rui-checkbox"][option="danger"] svg .check{ fill: #d9534f; } rui-checkbox[data-block="true"],[riot-tag="rui-checkbox"][data-block="true"],[data-is="rui-checkbox"][data-block="true"]{ display: block; } rui-checkbox span[data-disabled="true"],[riot-tag="rui-checkbox"] span[data-disabled="true"],[data-is="rui-checkbox"] span[data-disabled="true"]{ cursor: not-allowed; opacity: 0.65; color: #000; }', '', function(opts) {
-      var self = this;
-      self.mixin(parentScope).mixin(domEvent);
-      self.disabled = undefined;
-      self.checked = false;
-
-      self.click = e => {
-        e.stopPropagation();
-        if (self.disabled) {
-          return;
-        }
-        self.root.value = self.value = self.checked = !self.checked;
-        self.triggerDomEvent('click');
-      };
-
-      self.on('update', e => {
-        self.disabled = opts.hasOwnProperty('disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
-        self.root.querySelector('span').setAttribute('data-disabled', this.disabled);
       });
 
   });
@@ -739,6 +739,163 @@
       self.root.blur = function () {
         self.root.querySelector('input').blur();
       }
+
+  });
+
+  riot.tag2('rui-map', '<div></div>', 'rui-map div,[riot-tag="rui-map"] div,[data-is="rui-map"] div{ width: 100%; height: 100%; }', '', function(opts) {
+      var self = this;
+      self.mixin(parentScope).mixin(domEvent).mixin(ruiEventBusMixin).mixin(ruiUtil);
+      self.mounted = false;
+      self.loaded = false;
+      self.googleLoaded = false;
+      self.bingLoaded = false;
+
+      self.checkForGoogleMap = function () {
+        if (self.googleLoaded) {
+          return;
+        }
+        if (window.google && window.google.maps && window.google.maps.Map) {
+          self.googleLoaded = true;
+          self.bus.trigger('rui-map-google-ready');
+        } else {
+          setTimeout(self.checkForGoogleMap);
+        }
+      }
+
+      self.checkForBingMap = function () {
+        if (self.googleLoaded) {
+          return;
+        }
+        if (window.Microsoft && window.Microsoft.Maps && window.Microsoft.Maps.Map && window.Microsoft.Maps.Location) {
+          self.bingLoaded = true;
+          self.bus.trigger('rui-map-bing-ready');
+        } else {
+          setTimeout(self.checkForBingMap);
+        }
+      }
+
+      var lastWidth = 0;
+      self.resizeMap = function () {
+        var container = self.root.querySelector('div');
+        if (container && container.offsetWidth && container.offsetWidth !== lastWidth) {
+          lastWidth = container.offsetWidth;
+
+          var expectedSize = 2;
+          if (self.display.split(':').length === expectedSize) {
+            var ratio = {w:0, h:1};
+            ratio.w = self.display.split(':').shift();
+            ratio.h = self.display.split(':').pop();
+            container.style.width = '100%';
+            container.style.height = ((container.offsetWidth / ratio.w) * ratio.h) + 'px';
+          } else {
+            container.style.width = '100%';
+            container.style.height = '100%';
+          }
+
+          if (self.loaded && self.googleLoaded) {
+            window.google.maps.event.trigger(self.map,'resize');
+          }
+        }
+      }
+
+      self.on('mount', function () {
+        var defaultZoomLevel = 8;
+        self.display = opts.hasOwnProperty('display') ? opts.display : 'block';
+        self.lat = opts.hasOwnProperty('lat') ? opts.lat : undefined;
+        self.lng = opts.hasOwnProperty('lng') ? opts.lng : undefined;
+        self.zoom = opts.hasOwnProperty('zoom') ? opts.zoom : defaultZoomLevel;
+
+        self.googleKey = opts.hasOwnProperty('googleKey') ? opts.googleKey : undefined;
+        self.bingKey = opts.hasOwnProperty('bingKey') ? opts.bingKey : undefined;
+
+        if (self.googleKey) {
+          self.loadScript('https://maps.googleapis.com/maps/api/js?key=' + self.googleKey);
+          self.checkForGoogleMap();
+        } else if (self.bingKey) {
+          self.loadScript('https://www.bing.com/api/maps/mapcontrol?branch=release');
+          self.checkForBingMap();
+        }
+
+        if (self.lat) {
+          self.lat = parseInt(self.lat);
+        }
+        if (self.lng) {
+          self.lng = parseInt(self.lng);
+        }
+      });
+
+      self.on('update', function () {
+        if (self.loaded) {
+          self.lat = opts.hasOwnProperty('lat') ? opts.lat : undefined;
+          self.lng = opts.hasOwnProperty('lng') ? opts.lng : undefined;
+
+          if (self.lat) {
+            self.lat = parseInt(self.lat);
+          }
+          if (self.lng) {
+            self.lng = parseInt(self.lng);
+          }
+        }
+      });
+
+      self.on('rui-window-resized', function (){
+        self.resizeMap();
+      });
+
+      self.on('rui-map-google-ready', function () {
+        if (self.loaded || !self.googleKey) {
+          return;
+        }
+
+        self.resizeMap();
+        self.map = new window.google.maps.Map(self.root.querySelector('div'), {
+          center: {
+            lat: self.lat,
+            lng: self.lng
+          },
+          scrollwheel: false,
+          keyboardShortcuts: false,
+          disableDoubleClickZoom: false,
+          fullscreenControl: false,
+          mapTypeControl: false,
+          rotateControl: false,
+          scaleControl: false,
+          signInControl: false,
+          streetViewControl: false,
+          zoomControl: false,
+          zoom: self.zoom
+        });
+
+        self.loaded = true;
+      });
+
+      self.on('rui-map-bing-ready', function () {
+        if (self.loaded || !self.bingKey) {
+          return;
+        }
+
+        self.resizeMap();
+        try {
+          self.map = new window.Microsoft.Maps.Map(self.root.querySelector('div'), {
+            credentials: self.bingKey,
+            center: new window.Microsoft.Maps.Location(self.lat, self.lng),
+            disableZooming: true,
+            disableKeyboardInput: true,
+            disableMouseInput: true,
+            disablePanning: true,
+            showBreadcrumb: false,
+            showDashboard: false,
+            showMapTypeSelector: false,
+            zoom: self.zoom
+          });
+        } catch (e) {
+          console.log('bing error: ', e);
+          setTimeout(function () {
+            self.bus.trigger('rui-map-bing-ready');
+          });
+        }
+        self.loaded = true;
+      });
 
   });
 
