@@ -40,7 +40,7 @@
     </rui-row>
 
     <rui-row>
-      <rui-col md="25" md-hidden>
+      <rui-col md="25" sm-hidden>
         <rui-toc></rui-toc>
       </rui-col>
       <rui-col md="75" xs="100">
