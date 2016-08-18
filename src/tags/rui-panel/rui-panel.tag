@@ -39,5 +39,9 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     border-top-right-radius: .25rem;
     border-top-left-radius: .25rem;
   }
+
+  :scope > rui-container {
+    min-width: inherit;
+  }
   </style>
 </rui-panel-container>
