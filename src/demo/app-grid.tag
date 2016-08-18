@@ -14,6 +14,30 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     <li>Grid tiers are based on minimum widths, meaning they apply to that one tier and all those above it.</li>
   </ul>
 
+  <rui-header level="2">Grid Tiers</rui-header>
+  <ul>
+    <li>
+      320 pixels (Phones)
+      <dd>Designed for phone screens such as the iPhone and Galaxy S5</dd>
+    </li>
+    <li>
+      640 pixels (Tables)
+      <dd>Designed for tablet screens such as the iPad and larger phones in landscape such as the iPhone 6</dd>
+    </li>
+    <li>
+      1024 pixels (XGA)
+      <dd>Designed for older monitors</dd>
+    </li>
+    <li>
+      1280 pixels (720p)
+      <dd>Designed for modern smaller monitors</dd>
+    </li>
+    <li>
+      1920 pixels (1080p)
+      <dd>Designed for modern larger monitors.</dd>
+    </li>
+  </ul>
+
   <rui-header level="2">Quick start example</rui-header>
   <rui-panel>
     <rui-panel-container>
@@ -55,6 +79,44 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
   </rui-panel>
   <p>The above example creates three equal-width columns on small, medium, large, and extra large devices.
     This example also has added padding and boarders to the rui-col elements to make it clear where the columns are.</p>
+
+  <rui-header level="2">Show columns based on window width.</rui-header>
+  <rui-panel>
+    <rui-panel-container>
+      <rui-container>
+        <rui-row>
+          <rui-col sm="100" xl-visible>xl-visible: Visible on <strong>extra-large</strong> and above</rui-col>
+          <rui-col sm="100" lg-visible>lg-visible: Visible on <strong>large</strong> and above</rui-col>
+          <rui-col sm="100" md-visible>md-visible: Visible on <strong>medium</strong> and above</rui-col>
+          <rui-col sm="100" sm-visible>sm-visible: Visible on <strong>small</strong> and above</rui-col>
+          <rui-col sm="100" xs-visible>xs-visible: Visible on <strong>extra-small</strong> and above</rui-col>
+        </rui-row>
+      </rui-container>
+    </rui-panel-container>
+    <rui-panel-container>
+      <rui-code>
+      </rui-code>
+    </rui-panel-container>
+  </rui-panel>
+
+  <rui-header level="2">Hide columns based on window width.</rui-header>
+  <rui-panel>
+    <rui-panel-container>
+      <rui-container>
+        <rui-row>
+          <rui-col sm="100" xl-hidden>xl-hidden: Hide on <strong>extra-large</strong> and below</rui-col>
+          <rui-col sm="100" lg-hidden>lg-hidden: Hide on <strong>large</strong> and below</rui-col>
+          <rui-col sm="100" md-hidden>md-hidden: Hide on <strong>medium</strong> and below</rui-col>
+          <rui-col sm="100" sm-hidden>sm-hidden: Hide on <strong>small</strong> and below</rui-col>
+          <rui-col sm="100" xs-hidden>xs-hidden: Hide on <strong>extra-small</strong> and below</rui-col>
+        </rui-row>
+      </rui-container>
+    </rui-panel-container>
+    <rui-panel-container>
+      <rui-code>
+      </rui-code>
+    </rui-panel-container>
+  </rui-panel>
 
   <script>
     this.mixin(parentScope).mixin(domEvent);

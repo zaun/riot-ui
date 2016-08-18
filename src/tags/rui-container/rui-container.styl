@@ -1,18 +1,28 @@
-@media (min-width: 544px)
+// 320 x * (Phones)
+@media (min-width: 300px)
   :scope
-    max-width 540px
+    min-width 295px
+    max-width 295px
 
-@media (min-width: 768px)
+// 640 x * (tables)
+@media (min-width: 600px)
   :scope
-    max-width 720px
+    max-width 580px
 
-@media (min-width: 992px)
+// 1024 x 768 (XGA)
+@media (min-width: 944px)
   :scope
-    max-width  940px
+    max-width  904px
 
+// 1280 x 720 (720p)
 @media (min-width: 1200px)
   :scope
     max-width 1170px
+
+// 1920 x 1080 (1080p)
+@media (min-width: 1840px)
+  :scope
+    max-width 1800px
 
 :scope
   display block

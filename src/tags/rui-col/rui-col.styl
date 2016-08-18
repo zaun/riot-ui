@@ -1,63 +1,22 @@
-for $num in (1..100)
-  :scope[xs={'"' + $num + '"'}]
-    width: $num + '%'
-for $num in (1..100)
-  :scope[sm={'"' + $num + '"'}]
-    width: $num + '%'
-for $num in (1..100)
-  :scope[md={'"' + $num + '"'}]
-    width: $num + '%'
-for $num in (1..100)
-  :scope[lg={'"' + $num + '"'}]
-    width: $num + '%'
-for $num in (1..100)
-  :scope[xl={'"' + $num + '"'}]
-    width: $num + '%'
-:scope[xs-hidden]
-  display none
-:scope[sm-hidden]
-  display none
-:scope[md-hidden]
-  display none
-:scope[lg-hidden]
-  display none
-:scope[xl-hidden]
-  display none
+@require ('../responsive.styl')
 
-@media (min-width: 544px)
+// 320 x * (Small Phones)
+@media (min-width: 300px)
   for $num in (1..100)
     :scope[xs={'"' + $num + '"'}]
       width: $num + '%'
-  :scope[xs-hidden]
-    display block
-  :scope[sm-hidden]
-    display none
-  :scope[md-hidden]
-    display none
-  :scope[lg-hidden]
-    display none
-  :scope[xl-hidden]
-    display none
 
-@media (min-width: 768px)
+// 640 x * (Phones)
+@media (min-width: 600px)
   for $num in (1..100)
     :scope[xs={'"' + $num + '"'}]
       width: $num + '%'
   for $num in (1..100)
     :scope[sm={'"' + $num + '"'}]
       width: $num + '%'
-  :scope[xs-hidden]
-    display block
-  :scope[sm-hidden]
-    display block
-  :scope[md-hidden]
-    display none
-  :scope[lg-hidden]
-    display none
-  :scope[xl-hidden]
-    display none
 
-@media (min-width: 992px)
+// 1024 x 768 (XGA)
+@media (min-width: 944px)
   for $num in (1..100)
     :scope[xs={'"' + $num + '"'}]
       width: $num + '%'
@@ -67,17 +26,8 @@ for $num in (1..100)
   for $num in (1..100)
     :scope[md={'"' + $num + '"'}]
       width: $num + '%'
-  :scope[xs-hidden]
-    display block
-  :scope[sm-hidden]
-    display block
-  :scope[md-hidden]
-    display block
-  :scope[lg-hidden]
-    display none
-  :scope[xl-hidden]
-    display none
 
+// 1280 x 720 (720p)
 @media (min-width: 1200px)
   for $num in (1..100)
     :scope[xs={'"' + $num + '"'}]
@@ -91,17 +41,21 @@ for $num in (1..100)
   for $num in (1..100)
     :scope[lg={'"' + $num + '"'}]
       width: $num + '%'
-  :scope[xs-hidden]
-    display block
-  :scope[sm-hidden]
-    display block
-  :scope[md-hidden]
-    display block
-  :scope[lg-hidden]
-    display block
-  :scope[xl-hidden]
-    display none
 
+// 1920 x 1080 (1080p)
+@media (min-width: 1840px)
+  for $num in (1..100)
+    :scope[xs={'"' + $num + '"'}]
+      width: $num + '%'
+  for $num in (1..100)
+    :scope[sm={'"' + $num + '"'}]
+      width: $num + '%'
+  for $num in (1..100)
+    :scope[md={'"' + $num + '"'}]
+      width: $num + '%'
+  for $num in (1..100)
+    :scope[lg={'"' + $num + '"'}]
+      width: $num + '%'
 
 :scope
   position relative

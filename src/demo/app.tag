@@ -2,11 +2,11 @@
   <rui-nav fixed>
     <rui-container>
       <rui-nav-item type="brand">Riot-UI</rui-nav-item>
-      <rui-nav-item href="#/navigation" active="{ view == 'navigation' }">Navigation</rui-nav-item>
-      <rui-nav-item href="#/grid" active="{ view == 'grid' }">Grid System</rui-nav-item>
-      <rui-nav-item href="#/inputs" active="{ view == 'inputs' }">Input Controls</rui-nav-item>
-      <rui-nav-item href="#/content" active="{ view == 'content' }">Content Controls</rui-nav-item>
-      <rui-nav-item href="#/icons" active="{ view == 'icons' }">Icons</rui-nav-item>
+      <rui-nav-item sm-hidden href="#/navigation" active="{ view == 'navigation' }">Navigation</rui-nav-item>
+      <rui-nav-item sm-hidden href="#/grid" active="{ view == 'grid' }">Grid System</rui-nav-item>
+      <rui-nav-item sm-hidden href="#/inputs" active="{ view == 'inputs' }">Input Controls</rui-nav-item>
+      <rui-nav-item sm-hidden href="#/content" active="{ view == 'content' }">Content Controls</rui-nav-item>
+      <rui-nav-item sm-hidden href="#/icons" active="{ view == 'icons' }">Icons</rui-nav-item>
       <rui-nav-item align="right" href="https://github.com/zaun/riot-ui">Github</rui-nav-item>
     </rui-container>
   </rui-nav>
