@@ -1,10 +1,8 @@
 
 'use strict'
 var RuiUtil = (function() {
-  var instance = undefined;
-
   return function() {
-    return instance ? instance : instance = {
+    return  {
       init: function() {
         var tag = this;
 
@@ -45,8 +43,29 @@ var RuiUtil = (function() {
           return (c === 'x' ? r : (r&0x3|0x8)).toString(16);
         });
         return uuid;
-      }
+      },
       /*eslint-enable */
+
+      getSize: function () {
+        var xsSize = 300;
+        var smSize = 600;
+        var mdSize = 944;
+        var lgSize = 1200;
+        var xlSize = 1840;
+        var width = document.body.offsetWidth;
+        if (width <= xsSize) {
+          return 'xs';
+        } else if (width <= smSize) {
+          return 'sm';
+        } else if (width <= mdSize) {
+          return 'md';
+        } else if (width <= lgSize) {
+          return 'lg';
+        } else if (width <= xlSize) {
+          return 'xl';
+        }
+        return 'unknown';
+      }
     };
   };
 }());

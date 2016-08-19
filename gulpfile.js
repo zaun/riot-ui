@@ -217,6 +217,7 @@ gulp.task('start', ['build', 'htmlDemo', 'rollupDemo', 'stylusDemo'], function (
       server: ['./build/demo']
     });
 
+    gulp.watch("src/mixins/**/*", ['build']);
     gulp.watch("src/tags/**/*", ['build']);
     gulp.watch("src/demo/**/*", ['rollupDemo', 'htmlDemo', 'stylusDemo']);
     gulp.watch("build/demo/*").on('change', browserSync.reload);
