@@ -12,6 +12,7 @@
     border-radius .25rem
     margin .3rem 0
     overflow hidden
+    background-color #f5f5f5
 
   .bar
     position relative
@@ -22,3 +23,57 @@
       display block
       width 100%
       text-align center
+
+:scope[option="primary"]
+  > div
+    border-color darken($color-primary, 50%)
+    background-color lighten($color-primary, 80%)
+  .bar
+    background-color $color-primary
+    span
+      color #fff
+
+:scope[option="secondary"]
+  > div
+    border-color darken($color-secondary, 50%)
+    background-color lighten($color-secondary, 80%)
+  .bar
+    background-color $color-secondary
+    span
+      color #000
+
+:scope[option="success"]
+  > div
+    border-color darken($color-success, 50%)
+    background-color lighten($color-success, 80%)
+  .bar
+    background-color $color-success
+    span
+      color #fff
+
+:scope[option="info"]
+  > div
+    border-color darken($color-info, 50%)
+    background-color lighten($color-info, 80%)
+  .bar
+    background-color $color-info
+    span
+      color #fff
+
+:scope[option="warning"]
+  > div
+    border-color darken($color-warning, 50%)
+    background-color lighten($color-warning, 80%)
+  .bar
+    background-color $color-warning
+    span
+      color #fff
+
+:scope[option="danger"]
+  > div
+    border-color darken($color-danger, 50%)
+    background-color lighten($color-danger, 80%)
+  .bar
+    background-color $color-danger
+    span
+      color #fff
