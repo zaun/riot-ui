@@ -4,8 +4,10 @@ self.click = e => {
     return;
   }
   if (opts.href) {
+    var xyPos = 0;
     e.preventUpdate = true;
     location.href = opts.href;
+    window.scrollTo(xyPos, xyPos);
     return;
   }
   self.triggerDomEvent('click');
