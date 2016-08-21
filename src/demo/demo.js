@@ -9,6 +9,7 @@ import './app-grid.tag';
 import './app-icons.tag';
 import './app-input.tag';
 import './app-nav.tag';
+import './app-progress.tag';
 import './app-toggle.tag';
 import './app.tag';
 
