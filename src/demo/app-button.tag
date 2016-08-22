@@ -20,7 +20,7 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
       <rui-button option="link">Link</rui-button>
     </rui-panel-container>
     <rui-panel-container>
-      <rui-code lang="nohighlight">
+      <rui-code>
 &lt;rui-button option="primary"&gt;Primary&lt;/rui-button&gt;<br />
 &lt;rui-button option="secondary"&gt;Secondary&lt;/rui-button&gt;<br />
 &lt;rui-button option="success"&gt;Success&lt;/rui-button&gt;<br />
