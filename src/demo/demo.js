@@ -11,6 +11,7 @@ import './app-input.tag';
 import './app-nav.tag';
 import './app-progress.tag';
 import './app-toggle.tag';
+import './app-thumbnail.tag';
 import './app.tag';
 
 riot.mount('app');

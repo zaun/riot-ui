@@ -51,6 +51,7 @@
         <app-toggle if="{ view == 'inputs' }"></app-toggle>
         <app-content if="{ view == 'content' }"></app-content>
         <app-progress if="{ view == 'content' }"></app-progress>
+        <app-thumbnail if="{ view == 'content' }"></app-thumbnail>
         <app-map if="{ view == 'content' }"></app-map>
         <app-checkbox if="{ view == 'inputs' }"></app-checkbox>
         <app-icons if="{ view == 'icons' }"></app-icons>

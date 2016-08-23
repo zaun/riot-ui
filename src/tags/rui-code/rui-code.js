@@ -31,6 +31,5 @@ self.on('rui-highlight-ready', function () {
   self.loaded = true;
 
   var block = self.root.querySelector('pre code');
-  console.log(block);
   window.hljs.highlightBlock(block);
 });
