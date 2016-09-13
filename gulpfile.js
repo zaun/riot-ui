@@ -52,7 +52,7 @@ gulp.task('javascript', function() {
                   "no-iterator": 2,
                   "no-lone-blocks": 2,
                   "no-loop-func": 2,
-                  "no-magic-numbers": 2,
+                  "no-magic-numbers": 1,
                   "no-multi-str": 2,
                   "no-script-url": 2,
                   "no-self-compare": 2,
