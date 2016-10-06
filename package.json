@@ -44,6 +44,7 @@
     "gulp-preprocess": "*",
     "gulp-riot": "*",
     "gulp-stylus": "*",
+    "gulp-uglifyjs": "*",
     "rollup-stream": "*",
     "rollup-plugin-babel": "*",
     "rollup-plugin-commonjs": "*",

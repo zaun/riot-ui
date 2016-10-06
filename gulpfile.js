@@ -154,7 +154,6 @@ gulp.task('rollup', ['process'], function () {
           .pipe(gulp.dest('build/demo'));
 });
 
-
 gulp.task('rollupDemo', function () {
   return rollupStream({
             format: 'iife',
@@ -203,12 +202,34 @@ gulp.task('stylusDemo', function () {
              .pipe(gulp.dest('build/demo'));
 });
 
+gulp.task('rollupDist', function () {
+  return rollupStream({
+            format: 'iife',
+            external: ['riot'],
+            globals: { riot: 'riot' },
+            plugins: [
+              rollupRiot(),
+              rollupNode({
+                jsnext: true,
+                main: true
+              }), rollupCommonjs({
+                sourceMap: false
+              })
+            ],
+            entry: 'build/tags/rui-full.js'
+          })
+          .pipe(source('riot-ui.js'))
+          .pipe(gulp.dest('dist'));
+});
+
 gulp.task('deploy', ['build', 'htmlDemo', 'rollupDemo', 'stylusDemo'], function () {
   return gulp.src('./build/demo/**/*')
              .pipe(plugins.ghPages({
                push: true
              }));
 })
+
+gulp.task('dist', ['build', 'rollupDist']);
 
 gulp.task('build', ['javascript', 'stylus', 'html', 'process', 'rollup']);
 

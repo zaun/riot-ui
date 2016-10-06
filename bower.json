@@ -1,0 +1,16 @@
+{
+  "name": "Riot-UI",
+  "version": "0.0.1",
+  "main": "dist/riot-ui.js",
+  "ignore": [
+    "etc",
+    "src",
+    ".gitignore",
+    ".travis.yml",
+    "bower.json",
+    "gulpfile.js",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+}
