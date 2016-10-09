@@ -4,6 +4,7 @@ import riot from 'riot';
 import './app-button.tag';
 import './app-checkbox.tag';
 import './app-content.tag';
+import './app-notification.tag';
 import './app-map.tag';
 import './app-grid.tag';
 import './app-icons.tag';

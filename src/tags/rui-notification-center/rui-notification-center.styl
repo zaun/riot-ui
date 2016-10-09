@@ -1,0 +1,54 @@
+@require ('../color.styl')
+
+:scope
+  position fixed
+  width 100%
+  z-index 9999
+
+  .alert
+    opacity 0.8
+    padding 15px
+    margin-top 2.5px
+    margin-bottom 2.5px
+    margin-right 5px
+    border 1px solid transparent
+    border-radius 4px
+    background-color #ddd
+    width 225px
+    float right
+    clear right
+
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+
+
+  .alert[option="primary"]
+    background-color $color-primary
+    border-color darken($color-primary, 50%)
+    color #fff
+
+  .alert[option="secondary"]
+    background-color $color-secondary
+    border-color darken($color-secondary, 50%)
+    color #000
+
+  .alert[option="success"]
+    background-color $color-success
+    border-color darken($color-success, 50%)
+    color #fff
+
+  .alert[option="info"]
+    background-color $color-info
+    border-color darken($color-info, 50%)
+    color #fff
+
+  .alert[option="warning"]
+    background-color $color-warning
+    border-color darken($color-warning, 50%)
+    color #fff
+
+  .alert[option="danger"]
+    background-color $color-danger
+    border-color darken($color-danger, 50%)
+    color #fff

@@ -11,6 +11,8 @@
     </rui-container>
   </rui-nav>
 
+  <rui-notification-center />
+
   <rui-container>
     <rui-row>
       <rui-col sm="100">
@@ -49,11 +51,12 @@
         <app-button if="{ view == 'inputs' }"></app-button>
         <app-input if="{ view == 'inputs' }"></app-input>
         <app-toggle if="{ view == 'inputs' }"></app-toggle>
+        <app-checkbox if="{ view == 'inputs' }"></app-checkbox>
         <app-content if="{ view == 'content' }"></app-content>
+        <app-notification if="{ view == 'content' }"></app-notification>
         <app-progress if="{ view == 'content' }"></app-progress>
         <app-thumbnail if="{ view == 'content' }"></app-thumbnail>
         <app-map if="{ view == 'content' }"></app-map>
-        <app-checkbox if="{ view == 'inputs' }"></app-checkbox>
         <app-icons if="{ view == 'icons' }"></app-icons>
       </rui-col>
     </rui-row>

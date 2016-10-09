@@ -10,6 +10,10 @@ var RuiUtil = (function() {
           window._rui = {};
         }
 
+        if (!window.rui) {
+          window.rui = {};
+        }
+
         if (!window._rui.resizeEvent) {
           window._rui.resizeEvent = true;
           window.addEventListener('resize', function () {
