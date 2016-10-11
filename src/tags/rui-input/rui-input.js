@@ -16,7 +16,7 @@ var isAlpha = function (key) {
 };
 
 var isNumber = function (key) {
-  return (key >= keyCodes.NUM_0 && key <= keyCodes.NUL_9) || (key >= keyCodes.NUMPAD_0 && key <= keyCodes.NUMPAD_9);
+  return (key >= keyCodes.NUM_0 && key <= keyCodes.NUM_9) || (key >= keyCodes.NUMPAD_0 && key <= keyCodes.NUMPAD_9);
 };
 
 var isHexLetter = function (key) {
@@ -24,7 +24,7 @@ var isHexLetter = function (key) {
 };
 
 var isPoint = function (key) {
-  return key === keyCodes.PERIOD || keyCodes.DECIMAL;
+  return key === keyCodes.PERIOD || key === keyCodes.DECIMAL;
 };
 
 var isEdit = function (key) {
