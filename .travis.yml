@@ -4,4 +4,4 @@ branches:
   only:
   - master
 before_script: npm install -g gulp
-script: gulp karma
+script: gulp; gulp karma
