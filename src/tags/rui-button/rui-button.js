@@ -3,7 +3,7 @@ self.currentActiveProp = undefined;
 self.block = undefined;
 self.disabled = undefined;
 
-self.click = e => {
+self.click = function (e) {
   e.stopPropagation();
   if (self.disabled) {
     return;
@@ -21,17 +21,17 @@ self.click = e => {
   self.triggerDomEvent('click');
 };
 
-self.on('update', e => {
-  self.isToggle = opts.hasOwnProperty('toggle') ? opts.toggle === '' || opts.toggle === 'toggle' || opts.toggle === true : false;
+self.on('update', function (e) {
+  self.isToggle = opts.toggle ? opts.toggle === '' || opts.toggle === 'toggle' || opts.toggle === true : false;
   if (!self.isToggle) {
-    self.active = opts.hasOwnProperty('active') ? opts.active === '' || opts.active === 'active' || opts.active === true : false;
+    self.active = Object.prototype.hasOwnProperty.call(opts, 'active') ? opts.active === '' || opts.active === 'active' || opts.active === true : false;
     if (self.currentActiveProp !== self.active) {
       self.root.active = self.currentActiveProp = self.active;
     }
   }
 
-  self.block = opts.hasOwnProperty('block') ? opts.block === '' || opts.block === 'block' || opts.block === true : false;
-  self.disabled = opts.hasOwnProperty('disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
+  self.block = Object.prototype.hasOwnProperty.call(opts, 'block') ? opts.block === '' || opts.block === 'block' || opts.block === true : false;
+  self.disabled = Object.prototype.hasOwnProperty.call(opts, 'disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
 
   self.root.setAttribute('data-active', this.active);
   self.root.setAttribute('data-block', this.block);

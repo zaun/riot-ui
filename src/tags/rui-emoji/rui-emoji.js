@@ -6,7 +6,7 @@ self.b64DecodeUnicode = function (str) {
 };
 
 self.on('update', function () {
-  self.name = opts.hasOwnProperty('name') ? opts.name : '';
+  self.name = opts.name ? opts.name : '';
 
   var b64 = '';
   switch(this.name.toLowerCase()) {

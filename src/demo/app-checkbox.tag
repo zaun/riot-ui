@@ -47,6 +47,9 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     </rui-panel-container>
     <rui-panel-container>
       <rui-code>
+        &lt;rui-checkbox disabled&gt;Default Checkbox&lt;/rui-checkbox&gt;<br />
+        &lt;rui-checkbox disabled="disabled"option="primary"&gt;Primary Checkbox&lt;/rui-checkbox&gt;<br />
+        &lt;rui-checkbox disabled="{ true }" option="secondary"&gt;Secondary Checkbox&lt;/rui-checkbox&gt;
       </rui-code>
     </rui-panel-container>
   </rui-panel>

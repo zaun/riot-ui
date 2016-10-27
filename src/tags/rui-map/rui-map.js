@@ -151,19 +151,19 @@ self.setCenter = function (lat, lng) {
 };
 
 self.on('mount', function () {
-  self.display = opts.hasOwnProperty('display') ? opts.display : 'block';
-  self.lat = opts.hasOwnProperty('lat') ? opts.lat : undefined;
-  self.lng = opts.hasOwnProperty('lng') ? opts.lng : undefined;
-  self.icon = opts.hasOwnProperty('icon') ? opts.icon : 'none';
-  self.xsZoom = opts.hasOwnProperty('xsZoom') ? opts.xsZoom : undefined;
-  self.smZoom = opts.hasOwnProperty('smZoom') ? opts.smZoom : undefined;
-  self.mdZoom = opts.hasOwnProperty('mdZoom') ? opts.mdZoom : undefined;
-  self.lgZoom = opts.hasOwnProperty('lgZoom') ? opts.lgZoom : undefined;
-  self.xlZoom = opts.hasOwnProperty('xlZoom') ? opts.xlZoom : undefined;
+  self.display = opts.display ? opts.display : 'block';
+  self.lat = opts.lat ? opts.lat : undefined;
+  self.lng = opts.lng ? opts.lng : undefined;
+  self.icon = opts.hicon ? opts.icon : 'none';
+  self.xsZoom = opts.xsZoom ? opts.xsZoom : undefined;
+  self.smZoom = opts.smZoom ? opts.smZoom : undefined;
+  self.mdZoom = opts.mdZoom ? opts.mdZoom : undefined;
+  self.lgZoom = opts.lgZoom ? opts.lgZoom : undefined;
+  self.xlZoom = opts.xlZoom ? opts.xlZoom : undefined;
   self.updateZoom();
 
-  self.googleKey = opts.hasOwnProperty('googleKey') ? opts.googleKey : undefined;
-  self.bingKey = opts.hasOwnProperty('bingKey') ? opts.bingKey : undefined;
+  self.googleKey = opts.googleKey ? opts.googleKey : undefined;
+  self.bingKey = opts.bingKey ? opts.bingKey : undefined;
 
   if (self.googleKey) {
     self.loadScript('https://maps.googleapis.com/maps/api/js?key=' + self.googleKey);
@@ -183,13 +183,13 @@ self.on('mount', function () {
 
 self.on('update', function () {
   if (self.loaded) {
-    self.lat = opts.hasOwnProperty('lat') ? opts.lat : undefined;
-    self.lng = opts.hasOwnProperty('lng') ? opts.lng : undefined;
-    self.xsZoom = opts.hasOwnProperty('xsZoom') ? opts.xsZoom : undefined;
-    self.smZoom = opts.hasOwnProperty('smZoom') ? opts.smZoom : undefined;
-    self.mdZoom = opts.hasOwnProperty('mdZoom') ? opts.mdZoom : undefined;
-    self.lgZoom = opts.hasOwnProperty('lgZoom') ? opts.lgZoom : undefined;
-    self.xlZoom = opts.hasOwnProperty('xlZoom') ? opts.xlZoom : undefined;
+    self.lat = opts.lat ? opts.lat : undefined;
+    self.lng = opts.lng ? opts.lng : undefined;
+    self.xsZoom = opts.xsZoom ? opts.xsZoom : undefined;
+    self.smZoom = opts.smZoom ? opts.smZoom : undefined;
+    self.mdZoom = opts.mdZoom ? opts.mdZoom : undefined;
+    self.lgZoom = opts.lgZoom ? opts.lgZoom : undefined;
+    self.xlZoom = opts.xlZoom ? opts.xlZoom : undefined;
     self.updateZoom();
 
     if (self.lat) {

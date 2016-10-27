@@ -1,5 +1,5 @@
 
-self.click = e => {
+self.click = function (e) {
   e.stopPropagation();
   if (this.disabled) {
     return;
@@ -9,11 +9,11 @@ self.click = e => {
   self.triggerDomEvent('click');
 };
 
-self.on('update', e => {
-  self.disabled = opts.hasOwnProperty('disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
-  self.left = opts.hasOwnProperty('left') ? opts.left : 'On';
-  self.right = opts.hasOwnProperty('right') ? opts.right : 'Off';
-  self.knob = opts.hasOwnProperty('knob') ? opts.knob : '';
+self.on('update', function (e) {
+  self.disabled = Object.prototype.hasOwnProperty.call(opts, 'disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
+  self.left = opts.left ? opts.left : 'On';
+  self.right = opts.right ? opts.right : 'Off';
+  self.knob = opts.knob ? opts.knob : '';
 
   self.root.setAttribute('data-disabled', this.disabled);
 

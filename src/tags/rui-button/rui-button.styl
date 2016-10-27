@@ -2,229 +2,277 @@
 
 :scope
   display inline-block
-  padding .375rem 1rem
-  font-size 1rem
-  font-weight 400
-  line-height 1.5
-  text-align center
-  white-space nowrap
-  vertical-align middle
-  cursor pointer
-  user-select none
-  border 1px solid #ccc
-  border-radius .25rem
-  margin .3rem 0
-  touch-action manipulation
-  text-transform none
+  margin-left 0.15em
+  margin-right 0.15em
+  div
+    font-size 1rem
+    font-weight 400
+    line-height 1.5
+    text-align center
+    white-space nowrap
+    vertical-align middle
+    cursor pointer
+    user-select none
+    border-width 1px
+    border-style solid
+    border-color #ccc
+    border-radius .25rem
+    margin .3rem 0
+    touch-action manipulation
+    text-transform none
+    padding .375rem 1rem
+    margin -3px;
 
 :scope:active
 :scope[data-active="true"]
-  border-color darken(#ccc, 35%)
+  div
+    border-color darken(#ccc, 35%)
 
 :scope:not([data-disabled="true"]):hover
-  border-color darken(#ccc, 20%)
+  div
+    border-color darken(#ccc, 20%)
 
 :scope[size="sm"]
-  padding .25rem .75rem
-  font-size .875rem
-  line-height 1.5
-  border-radius .2rem
+  div
+    padding .25rem .75rem
+    font-size .875rem
+    line-height 1.5
+    border-radius .2rem
 
 :scope[size="lg"]
-  padding .75rem 1.25rem
-  font-size 1.25rem
-  line-height 1.333333
-  border-radius .3rem
+  div
+    padding .75rem 1.25rem
+    font-size 1.25rem
+    line-height 1.333333
+    border-radius .3rem
 
 
 
 :scope[option="primary"]
-  background-color $color-primary
-  border-color darken($color-primary, 50%)
-  color #fff
+  div
+    background-color $color-primary
+    border-color darken($color-primary, 50%)
+    color #fff
 
 :scope[option="primary"]:active
 :scope[option="primary"][data-active="true"]
-  background-color darken($color-primary, 35%)
+  div
+    background-color darken($color-primary, 35%)
 
 :scope[option="primary"]:not([data-disabled="true"]):hover
-  background-color darken($color-primary, 20%)
+  div
+    background-color darken($color-primary, 20%)
 
 :scope[option="primary-o"]
-  background-color #fff
-  border-color $color-primary
-  color $color-primary
+  div
+    background-color #fff
+    border-color $color-primary
+    color $color-primary
 
 :scope[option="primary-o"]:active
 :scope[option="primary-o"][data-active="true"]
-  background-color darken($color-primary, 35%)
-  border-color darken($color-primary, 50%)
-  color #fff
+  div
+    background-color darken($color-primary, 35%)
+    border-color darken($color-primary, 50%)
+    color #fff
 
 :scope[option="primary-o"]:not([data-disabled="true"]):hover
-  background-color darken($color-primary, 20%)
-  border-color darken($color-primary, 50%)
-  color #fff
+  div
+    background-color darken($color-primary, 20%)
+    border-color darken($color-primary, 50%)
+    color #fff
 
 
 
 :scope[option="secondary"]
-  background-color $color-secondary
-  border-color darken($color-secondary, 50%)
-  color #000
+  div
+    background-color $color-secondary
+    border-color darken($color-secondary, 50%)
+    color #000
 
 :scope[option="secondary"]:active
 :scope[option="secondary"][data-active="true"]
-  background-color darken($color-secondary, 35%)
+  div
+    background-color darken($color-secondary, 35%)
 
 :scope[option="secondary"]:not([data-disabled="true"]):hover
-  background-color darken($color-secondary, 20%)
+  div
+    background-color darken($color-secondary, 20%)
 
 :scope[option="secondary-o"]
-  background-color #fff
-  border-color darken($color-secondary, 50%)
-  color #000
+  div
+    background-color #fff
+    border-color darken($color-secondary, 50%)
+    color #000
 
 :scope[option="secondary-o"]:active
 :scope[option="secondary-o"][data-active="true"]
-  background-color darken($color-secondary, 35%)
-  color #000
+  div
+    background-color darken($color-secondary, 35%)
+    color #000
 
 :scope[option="secondary-o"]:not([data-disabled="true"]):hover
-  background-color darken($color-secondary, 20%)
-  color #000
+  div
+    background-color darken($color-secondary, 20%)
+    color #000
 
 
 
 :scope[option="success"]
-  background-color $color-success
-  border-color darken($color-success, 50%)
-  color #fff
+  div
+    background-color $color-success
+    border-color darken($color-success, 50%)
+    color #fff
 
 :scope[option="success"]:active
 :scope[option="success"][data-active="true"]
-  background-color darken($color-success, 35%)
+  div
+    background-color darken($color-success, 35%)
 
 :scope[option="success"]:not([data-disabled="true"]):hover
-  background-color darken($color-success, 20%)
+  div
+    background-color darken($color-success, 20%)
 
 :scope[option="success-o"]
-  background-color #fff
-  border-color $color-success
-  color $color-success
+  div
+    background-color #fff
+    border-color $color-success
+    color $color-success
 
 :scope[option="success-o"]:active
 :scope[option="success-o"][data-active="true"]
-  background-color darken($color-success, 35%)
-  border-color darken($color-success, 50%)
-  color #fff
+  div
+    background-color darken($color-success, 35%)
+    border-color darken($color-success, 50%)
+    color #fff
 
 :scope[option="success-o"]:not([data-disabled="true"]):hover
-  background-color darken($color-success, 20%)
-  border-color darken($color-success, 50%)
-  color #fff
+  div
+    background-color darken($color-success, 20%)
+    border-color darken($color-success, 50%)
+    color #fff
 
 
 
 :scope[option="info"]
-  background-color $color-info
-  border-color darken($color-info, 50%)
-  color #fff
+  div
+    background-color $color-info
+    border-color darken($color-info, 50%)
+    color #fff
 
 :scope[option="info"]:active
 :scope[option="info"][data-active="true"]
-  background-color darken($color-info, 35%)
+  div
+    background-color darken($color-info, 35%)
 
 :scope[option="info"]:not([data-disabled="true"]):hover
-  background-color darken($color-info, 20%)
+  div
+    background-color darken($color-info, 20%)
 
 :scope[option="info-o"]
-  background-color #fff
-  border-color $color-info
-  color $color-info
+  div
+    background-color #fff
+    border-color $color-info
+    color $color-info
 
 :scope[option="info-o"]:active
 :scope[option="info-o"][data-active="true"]
-  background-color darken($color-info, 35%)
-  border-color darken($color-info, 50%)
-  color #fff
+  div
+    background-color darken($color-info, 35%)
+    border-color darken($color-info, 50%)
+    color #fff
 
 :scope[option="info-o"]:not([data-disabled="true"]):hover
-  background-color darken($color-info, 20%)
-  border-color darken($color-info, 50%)
-  color #fff
+  div
+    background-color darken($color-info, 20%)
+    border-color darken($color-info, 50%)
+    color #fff
 
 
 
 :scope[option="warning"]
-  background-color $color-warning
-  border-color darken($color-warning, 50%)
-  color #fff
+  div
+    background-color $color-warning
+    border-color darken($color-warning, 50%)
+    color #fff
 
 :scope[option="warning"]:active
 :scope[option="warning"][data-active="true"]
-  background-color darken($color-warning, 35%)
+  div
+    background-color darken($color-warning, 35%)
 
 :scope[option="warning"]:not([data-disabled="true"]):hover
-  background-color darken($color-warning, 20%)
+  div
+    background-color darken($color-warning, 20%)
 
 :scope[option="warning-o"]
-  background-color #fff
-  border-color $color-warning
-  color $color-warning
+  div
+    background-color #fff
+    border-color $color-warning
+    color $color-warning
 
 :scope[option="warning-o"]:active
 :scope[option="warning-o"][data-active="true"]
-  background-color darken($color-warning, 35%)
-  border-color darken($color-warning, 50%)
-  color #fff
+  div
+    background-color darken($color-warning, 35%)
+    border-color darken($color-warning, 50%)
+    color #fff
 
 :scope[option="warning-o"]:not([data-disabled="true"]):hover
-  background-color darken($color-warning, 20%)
-  border-color darken($color-warning, 50%)
-  color #fff
+  div
+    background-color darken($color-warning, 20%)
+    border-color darken($color-warning, 50%)
+    color #fff
 
 
 
 :scope[option="danger"]
-  background-color $color-danger
-  border-color darken($color-danger, 50%)
-  color #fff
+  div
+    background-color $color-danger
+    border-color darken($color-danger, 50%)
+    color #fff
 
 :scope[option="danger"]:active
 :scope[option="danger"][data-active="true"]
-  background-color darken($color-danger, 35%)
+  div
+    background-color darken($color-danger, 35%)
 
 :scope[option="danger"]:not([data-disabled="true"]):hover
-  background-color darken($color-danger, 20%)
+  div
+    background-color darken($color-danger, 20%)
 
 :scope[option="danger-o"]
-  background-color #fff
-  border-color $color-danger
-  color $color-danger
+  div
+    background-color #fff
+    border-color $color-danger
+    color $color-danger
 
 :scope[option="danger-o"]:active
 :scope[option="danger-o"][data-active="true"]
-  background-color darken($color-danger, 35%)
-  border-color darken($color-danger, 50%)
-  color #fff
+  div
+    background-color darken($color-danger, 35%)
+    border-color darken($color-danger, 50%)
+    color #fff
 
 :scope[option="danger-o"]:not([data-disabled="true"]):hover
-  background-color darken($color-danger, 20%)
-  border-color darken($color-danger, 50%)
-  color #fff
+  div
+    background-color darken($color-danger, 20%)
+    border-color darken($color-danger, 50%)
+    color #fff
 
 
 
 :scope[option="link"]
-  background-color #fff
-  border-color #fff
-  color $color-primary
-  border-radius 0
+  div
+    background-color #fff
+    border-color #fff
+    color $color-primary
+    border-radius 0
 
 :scope[option="link"]:not([data-disabled="true"]):hover
-  color $color-primary-hover
-  text-decoration underline
+  div
+    color $color-primary-hover
+    text-decoration underline
 
 
 
@@ -233,7 +281,8 @@
   display block
 
 :scope[data-disabled="true"]
-  cursor not-allowed
-  opacity .65
-  background-color $color-disabled
-  color #000
+  div
+    cursor not-allowed
+    opacity .65
+    background-color $color-disabled
+    color #000

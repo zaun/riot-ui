@@ -66,7 +66,7 @@ var mode = {
   }
 };
 
-self.change = e => {
+self.change = function (e) {
   e.stopPropagation();
   if (self.disabled) {
     return;
@@ -74,7 +74,7 @@ self.change = e => {
   self.triggerDomEvent('change');
 };
 
-self.keydown = e => {
+self.keydown = function (e) {
   e.stopPropagation();
   if (self.disabled) {
     return;
@@ -91,7 +91,7 @@ self.keydown = e => {
   return valid;
 };
 
-self.keyup = e => {
+self.keyup = function (e) {
   e.stopPropagation();
   if (self.disabled) {
     return;
@@ -101,7 +101,7 @@ self.keyup = e => {
   self.triggerDomEvent('keyup');
 };
 
-self.focus = e => {
+self.focus = function (e) {
   e.stopPropagation();
   if (self.disabled) {
     e.target.blur();
@@ -110,7 +110,7 @@ self.focus = e => {
   self.triggerDomEvent('focus');
 };
 
-self.blur = e => {
+self.blur = function (e) {
   e.stopPropagation();
   if (self.disabled) {
     return;
@@ -118,11 +118,11 @@ self.blur = e => {
   self.triggerDomEvent('blur');
 };
 
-self.on('update', e => {
-  self.mode = opts.hasOwnProperty('type') ? opts.type.toLowerCase() : 'text';
-  self.disabled = opts.hasOwnProperty('disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
+self.on('update', function (e) {
+  self.mode = opts.type ? opts.type.toLowerCase() : 'text';
+  self.disabled = Object.prototype.hasOwnProperty.call(opts, 'disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
 
-  var value = opts.hasOwnProperty('value') ? opts.value : '';
+  var value = opts.value ? opts.value : '';
   if (self.currentValueProp !== value) {
     self.root.value = self.value = self.currentValueProp = value;
   }
@@ -131,7 +131,10 @@ self.on('update', e => {
 
 /* Public API */
 
-self.root.clear = function (focus = true) {
+self.root.clear = function (focus) {
+  if (focus === undefined) {
+    focus = true;
+  }
   self.root.value = self.value = '';
   self.update();
   if (focus) {

@@ -1,5 +1,7 @@
 var gulp = require('gulp');
 var exec = require('child_process').exec;
+var os = require('os');
+var fs = require('fs');
 
 var plugins = require('gulp-load-plugins')();
 
@@ -9,6 +11,8 @@ var rollupNode = require('rollup-plugin-node-resolve');
 var rollupRiot = require('rollup-plugin-riot');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+
+var KarmaServer = require('karma').Server;
 
 var browserSync = require('browser-sync').create();
 
@@ -127,31 +131,69 @@ gulp.task('process', ['javascript', 'stylus', 'html'], function() {
                var list = JSON.parse(content);
                var output = "";
                list.forEach(function (file) {
-                 output += "import './" + file + "';\n";
+                 output += "import '../tags/" + file + "';\n";
                })
                return output;
              }))
-             .pipe(gulp.dest('build/tags'));
+             .pipe(gulp.dest('build/entries'))
+             .on('data', function (file) {
+               var content = file._contents.toString();
+               var lines = content.split(os.EOL);
+
+               lines.forEach(function (line) {
+                 if (line) {
+                   var name = line.split('/').pop().split('.').shift() + '.js';
+                   var file = __dirname + '/build/entries/' + name;
+                   try {
+                     fs.unlinkSync(file);
+                   } catch(e) {}
+                   fs.writeFileSync(file, line);
+                 }
+               });
+             });
 });
 
 gulp.task('rollup', ['process'], function () {
-  return rollupStream({
-            format: 'iife',
-            external: ['riot'],
-            globals: { riot: 'riot' },
-            plugins: [
-              rollupRiot(),
-              rollupNode({
-                jsnext: true,
-                main: true
-              }), rollupCommonjs({
-                sourceMap: false
+  fs.readdir(__dirname + '/build/entries/', function (err, files) {
+    files.forEach(function (file) {
+      rollupStream({
+                format: 'iife',
+                external: ['riot'],
+                globals: { riot: 'riot' },
+                plugins: [
+                  rollupRiot(),
+                  rollupNode({
+                    jsnext: true,
+                    main: true
+                  }), rollupCommonjs({
+                    sourceMap: false
+                  })
+                ],
+                entry: 'build/entries/' + file
               })
-            ],
-            entry: 'build/tags/rui-full.js'
-          })
-          .pipe(source('rui-full.js'))
-          .pipe(gulp.dest('build/demo'));
+              .pipe(source(file))
+              .pipe(gulp.dest('build/lib'));
+    });
+  });
+
+  rollupStream({
+      format: 'iife',
+      external: ['riot'],
+      globals: { riot: 'riot' },
+      plugins: [
+        rollupRiot(),
+        rollupNode({
+          jsnext: true,
+          main: true
+        }), rollupCommonjs({
+          sourceMap: false
+        })
+      ],
+      entry: 'build/entries/rui-full.js'
+    })
+    .pipe(source('rui-full.js'))
+    .pipe(gulp.dest('build/demo'));
+
 });
 
 gulp.task('rollupDemo', function () {
@@ -216,7 +258,7 @@ gulp.task('rollupDist', function () {
                 sourceMap: false
               })
             ],
-            entry: 'build/tags/rui-full.js'
+            entry: 'build/entries/rui-full.js'
           })
           .pipe(source('riot-ui.js'))
           .pipe(gulp.dest('dist'));
@@ -228,6 +270,12 @@ gulp.task('deploy', ['build', 'htmlDemo', 'rollupDemo', 'stylusDemo'], function 
                push: true
              }));
 })
+
+gulp.task('karma', ['build'], function (done) {
+  new KarmaServer({
+    configFile: __dirname + '/tests/karma.conf.js'
+  }, done).start();
+});
 
 gulp.task('dist', ['build', 'rollupDist']);
 

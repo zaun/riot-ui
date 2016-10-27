@@ -16,8 +16,8 @@ self.checkForHighlight = function () {
 
 self.on('mount', function () {
   self.mounted = true;
-  self.dark = opts.hasOwnProperty('dark') ? opts.dark === '' || opts.dark === 'dark' || opts.dark === true : false;
-  self.lang = opts.hasOwnProperty('lang') ? opts.lang : 'HTML';
+  self.dark = Object.prototype.hasOwnProperty.call(opts, 'dark') ? opts.dark === '' || opts.dark === 'dark' || opts.dark === true : false;
+  self.lang = opts.lang ? opts.lang : 'HTML';
 
   self.loadScript('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js');
 

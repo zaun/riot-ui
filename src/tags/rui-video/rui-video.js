@@ -58,8 +58,8 @@ self.on('mount', function () {
   self.mounted = true;
   self.divId = self.generateUUID();
   self.update();
-  self.youtubeId = opts.hasOwnProperty('youtubeId') ? opts.youtubeId : undefined;
-  self.vimeoId = opts.hasOwnProperty('vimeoId') ? opts.vimeoId : undefined;
+  self.youtubeId = opts.youtubeId ? opts.youtubeId : undefined;
+  self.vimeoId = opts.vimeoId ? opts.vimeoId : undefined;
 
   self.loadScript('https://www.youtube.com/iframe_api');
   self.loadScript('https://player.vimeo.com/api/player.js');

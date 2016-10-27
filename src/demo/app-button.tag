@@ -21,6 +21,7 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     </rui-panel-container>
     <rui-panel-container>
       <rui-code>
+&lt;rui-button&gt;Default&lt;/rui-button&gt;<br />
 &lt;rui-button option="primary"&gt;Primary&lt;/rui-button&gt;<br />
 &lt;rui-button option="secondary"&gt;Secondary&lt;/rui-button&gt;<br />
 &lt;rui-button option="success"&gt;Success&lt;/rui-button&gt;<br />
@@ -181,6 +182,7 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     <rui-panel-container>
       <rui-button option="primary" onclick={ addOne }>Add</rui-button>
       <rui-button option="danger" onclick={ subtractOne }>Subtract</rui-button>
+      <rui-button option="primary" disabled onclick={ addOne }>Disabled</rui-button>
     </rui-panel-container>
     <rui-panel-container>
       <strong>Value: </strong> { exampleValue }

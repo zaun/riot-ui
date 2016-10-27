@@ -1,7 +1,7 @@
 self.disabled = undefined;
 self.checked = false;
 
-self.click = e => {
+self.click = function (e) {
   e.stopPropagation();
   if (self.disabled) {
     return;
@@ -10,7 +10,7 @@ self.click = e => {
   self.triggerDomEvent('click');
 };
 
-self.on('update', e => {
-  self.disabled = opts.hasOwnProperty('disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
+self.on('update', function (e) {
+  self.disabled = Object.prototype.hasOwnProperty.call(opts, 'disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
   self.root.querySelector('span').setAttribute('data-disabled', this.disabled);
 });

@@ -72,7 +72,13 @@
 
     self.view = '';
 
-    riot.route(function(collection) {
+    // Support riot v3.0
+    var route = window.route;
+    if (riot.route) {
+      route = riot.route;
+    }
+
+    route(function(collection) {
       if (collection) {
         self.view = collection.toLowerCase();
         self.update();
@@ -80,6 +86,6 @@
         location.href = '#/navigation'
       }
     });
-    riot.route.start(true);
+    route.start(true);
   </script>
 </app>
