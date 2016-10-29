@@ -1,6 +1,6 @@
 import { domEvent, parentScope } from 'riot-mixin-pack'
 
-<app-content>
+<app-pannel>
   <rui-header>Panels</rui-header>
   <p>The <code>rui-panel</code> and <code>rui-panel-container</code> tags can be used to
   organize and call out information.</p>
@@ -80,71 +80,8 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     </rui-panel-container>
   </rui-panel>
 
-  <rui-header>Headers</rui-header>
-  <p>The <code>rui-header</code> is an advanced header replacement for <code>h1</code> style
-  tags. It also works with <code>rui-toc</code> to generate a table of contents.</p>
-
-  <rui-panel>
-    <rui-panel-container>
-      <rui-header no-toc>Level 1</rui-header>
-      <rui-header level="2" no-toc>Level 2</rui-header>
-      <rui-header level="3" no-toc>Level 3</rui-header>
-      <rui-header level="4" no-toc>Level 4</rui-header>
-      <rui-header level="5" no-toc>Level 5</rui-header>
-      <rui-header level="6" no-toc>Level 6</rui-header>
-    </rui-panel-container>
-    <rui-panel-container>
-      <rui-code>
-      </rui-code>
-    </rui-panel-container>
-  </rui-panel>
-
-  <rui-header>Badges</rui-header>
-  <p>The <code>rui-badge</code> is a simple count indicator that can be added to other controls.</p>
-
-  <rui-panel>
-    <rui-panel-container>
-      <rui-badge>9</rui-badge>
-      <rui-badge>99</rui-badge>
-      <rui-badge>999</rui-badge>
-      <rui-badge>9999</rui-badge>
-    </rui-panel-container>
-    <rui-panel-container>
-      <rui-button>
-        Test
-        <rui-badge>9</rui-badge>
-      </rui-button>
-      <rui-button>
-        Test
-        <rui-badge>99</rui-badge>
-      </rui-button>
-    </rui-panel-container>
-    <rui-panel-container>
-      <rui-code>
-      </rui-code>
-    </rui-panel-container>
-  </rui-panel>
-
-  <rui-header>Video</rui-header>
-  <p>The <code>rui-video</code> is a quick way to embed video from popular hosting services such as YouTube.</p>
-
-  <rui-panel>
-    <rui-panel-container>
-      <rui-video youtube-id="xCoxGV7j71c"></rui-video>
-    </rui-panel-container>
-    <rui-panel-container>
-      <rui-video vimeo-id="162348702"></rui-video>
-    </rui-panel-container>
-    <rui-panel-container>
-      <rui-code>
-        &lt;rui-video youtube-id="xCoxGV7j71c"&gt;&lt;/rui-video&gt;<br />
-        &lt;rui-video vimeo-id="162348702"&gt;&lt;/rui-video&gt;
-      </rui-code>
-    </rui-panel-container>
-  </rui-panel>
-
   <script>
     this.mixin(parentScope).mixin(domEvent);
   </script>
 
-</app-content>
+</app-pannel>

@@ -13,8 +13,8 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     </rui-panel-container>
     <rui-panel-container>
       <rui-code>
-        &lt;rui-map google-key="GOOGLE-API-KEY" display="16:9" lat="-34.397" lng="150.644"&gt;&lt;/rui-map&gt;<br />
-        &lt;rui-map bing-key="BING-API-KEY" display="16:9" lat="-34.397" lng="150.644"&gt;&lt;/rui-map&gt;
+        &lt;rui-map google-key="GOOGLE-API-KEY" display="8:2" lat="-34.397" lng="150.644"&gt;&lt;/rui-map&gt;<br />
+        &lt;rui-map bing-key="BING-API-KEY" display="8:2" lat="-34.397" lng="150.644"&gt;&lt;/rui-map&gt;
       </rui-code>
     </rui-panel-container>
   </rui-panel>

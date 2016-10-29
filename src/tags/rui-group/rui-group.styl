@@ -15,6 +15,23 @@
       height 100%
 
 
+  .rui-group-container > :first-child
+    border-top-left-radius .25rem
+    border-top-right-radius 0
+    border-bottom-left-radius .25rem
+    border-bottom-right-radius 0
+
+  .rui-group-container > :last-child
+    border-top-left-radius 0
+    border-top-right-radius .25rem
+    border-bottom-left-radius 0
+    border-bottom-right-radius .25rem
+    border-left-width: 0
+
+  .rui-group-container > :not(:first-child):not(:last-child)
+    border-radius 0
+    border-left-width: 0
+
   .rui-group-container > rui-button:first-child
     div
       border-top-left-radius .25rem

@@ -52,10 +52,13 @@
         <app-input if="{ view == 'inputs' }"></app-input>
         <app-toggle if="{ view == 'inputs' }"></app-toggle>
         <app-checkbox if="{ view == 'inputs' }"></app-checkbox>
-        <app-content if="{ view == 'content' }"></app-content>
+        <app-pannel if="{ view == 'content' }"></app-pannel>
+        <app-header if="{ view == 'content' }"></app-header>
+        <app-badges if="{ view == 'content' }"></app-badges>
         <app-notification if="{ view == 'content' }"></app-notification>
         <app-progress if="{ view == 'content' }"></app-progress>
         <app-thumbnail if="{ view == 'content' }"></app-thumbnail>
+        <app-video if="{ view == 'content' }"></app-video>
         <app-map if="{ view == 'content' }"></app-map>
         <app-icons if="{ view == 'icons' }"></app-icons>
       </rui-col>
