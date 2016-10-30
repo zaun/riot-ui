@@ -436,6 +436,28 @@ describe('rui-button tests', function() {
     expect(el.getAttribute('data-active')).toEqual('false');
   });
 
+  it('Toggle button', function () {
+    // Create the tag
+    var el = document.createElement('rui-button')
+    el.innerHTML = 'Test Button';
+    el.setAttribute('toggle', '');
+    document.body.appendChild(el)
+
+    // Mount the tag
+    tag = riot.mount('rui-button')[0]
+    expect(tag).toBeDefined();
+    expect(tag.isMounted).toBe(true);
+    tag.update();
+
+    // Wrapper div
+    expect(el.getAttribute('data-active')).toEqual('false');
+    el.childNodes[0].click();
+    expect(el.getAttribute('data-active')).toEqual('true');
+    el.childNodes[0].click();
+    expect(el.getAttribute('data-active')).toEqual('false');
+  });
+
+
   describe('Verify styles', function () {
 
     it('Default style', function () {

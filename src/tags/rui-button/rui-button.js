@@ -22,12 +22,14 @@ self.click = function (e) {
 };
 
 self.on('update', function (e) {
-  self.isToggle = opts.toggle ? opts.toggle === '' || opts.toggle === 'toggle' || opts.toggle === true : false;
+  self.isToggle = Object.prototype.hasOwnProperty.call(opts, 'toggle') ? opts.toggle === '' || opts.toggle === 'toggle' || opts.toggle === true : false;
   if (!self.isToggle) {
     self.active = Object.prototype.hasOwnProperty.call(opts, 'active') ? opts.active === '' || opts.active === 'active' || opts.active === true : false;
     if (self.currentActiveProp !== self.active) {
       self.root.active = self.currentActiveProp = self.active;
     }
+  } else {
+    self.root.active = self.currentActiveProp = false;
   }
 
   self.block = Object.prototype.hasOwnProperty.call(opts, 'block') ? opts.block === '' || opts.block === 'block' || opts.block === true : false;
