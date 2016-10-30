@@ -8,3 +8,8 @@ self.on('rui-toc-update', function (e) {
     self.update();
   }
 });
+
+self.scrollTo = function (pos) {
+  console.log(pos);
+  window.scrollTo(0, pos);
+};

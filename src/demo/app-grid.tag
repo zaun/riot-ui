@@ -80,7 +80,7 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
   <p>The above example creates three equal-width columns on small, medium, large, and extra large devices.
     This example also has added padding and boarders to the rui-col elements to make it clear where the columns are.</p>
 
-  <rui-header level="2">Show columns based on window width.</rui-header>
+  <rui-header level="2">Show columns based on width</rui-header>
   <rui-panel>
     <rui-panel-container>
       <rui-container>
@@ -99,7 +99,7 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     </rui-panel-container>
   </rui-panel>
 
-  <rui-header level="2">Hide columns based on window width.</rui-header>
+  <rui-header level="2">Hide columns based on width</rui-header>
   <rui-panel>
     <rui-panel-container>
       <rui-container>
