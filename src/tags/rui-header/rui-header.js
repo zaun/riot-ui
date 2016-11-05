@@ -7,7 +7,7 @@ function getOffset( elem ) {
     if (!isNaN(elem.offsetTop)) {
       offset += elem.offsetTop;
     }
-    elem = elem.parentNode
+    elem = elem.parentNode;
   } while (elm);
   return offset;
 }

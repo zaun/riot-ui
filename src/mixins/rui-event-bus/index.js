@@ -1,5 +1,6 @@
 
-'use strict'
+'use strict';
+
 var RuiEventBusMixin = (function() {
   var instance = undefined;
 

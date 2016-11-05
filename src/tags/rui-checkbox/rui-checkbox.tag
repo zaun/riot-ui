@@ -5,7 +5,10 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
 
   <script>
     var self = this;
-    self.mixin(parentScope).mixin(domEvent);
+    if (self.parent) {
+      self.mixin(parentScope);
+    }
+    self.mixin(domEvent);
     <!-- @include rui-checkbox.js -->
   </script>
 

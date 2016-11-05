@@ -22,6 +22,10 @@ self.click = function (e) {
 };
 
 self.on('update', function (e) {
+  if (!self.isMounted) {
+    return;
+  }
+
   self.isToggle = Object.prototype.hasOwnProperty.call(opts, 'toggle') ? opts.toggle === '' || opts.toggle === 'toggle' || opts.toggle === true : false;
   if (!self.isToggle) {
     self.active = Object.prototype.hasOwnProperty.call(opts, 'active') ? opts.active === '' || opts.active === 'active' || opts.active === true : false;
@@ -38,4 +42,8 @@ self.on('update', function (e) {
   self.root.setAttribute('data-active', this.active);
   self.root.setAttribute('data-block', this.block);
   self.root.setAttribute('data-disabled', this.disabled);
+});
+
+self.on('mount', function () {
+  self.update();
 });

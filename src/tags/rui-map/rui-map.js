@@ -22,7 +22,7 @@ self.checkForGoogleMap = function () {
   } else {
     setTimeout(self.checkForGoogleMap);
   }
-}
+};
 
 self.checkForBingMap = function () {
   if (self.googleLoaded) {
@@ -34,7 +34,7 @@ self.checkForBingMap = function () {
   } else {
     setTimeout(self.checkForBingMap);
   }
-}
+};
 
 var lastWidth = 0;
 self.resizeMap = function () {
@@ -61,7 +61,7 @@ self.resizeMap = function () {
     self.updateZoom();
     self.setCenter(self.lat, self.lng);
   }
-}
+};
 
 self.updateZoom = function () {
   var defaultZoomLevel = 8;
@@ -128,7 +128,7 @@ self.updateZoom = function () {
 
   self.zoom = parseInt(self.zoom);
   self.setZoom(self.zoom);
-}
+};
 
 self.setZoom = function (zoom) {
   self.zoom = zoom;

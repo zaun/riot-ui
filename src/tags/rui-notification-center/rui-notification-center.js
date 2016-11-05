@@ -11,7 +11,7 @@ self.fade = function (element) {
     element.style.filter = 'alpha(opacity=' + op * 100 + ')';
     op -= op * 0.05;
   }, 5);
-}
+};
 
 window.rui.alert = function (option, message) {
   if (!message) {
@@ -31,9 +31,9 @@ window.rui.alert = function (option, message) {
   var cancelTimout = setTimeout(function () {
     self.fade(alert);
   }, 5000);
-}
+};
 
 self.alertClose = function () {
   self.alertMessage = '';
   self.alertShow = false;
-}
+};

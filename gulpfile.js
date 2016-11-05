@@ -70,6 +70,8 @@ gulp.task('javascript', function() {
                   "no-lonely-if": 2,
                   "no-plusplus": [2, {"allowForLoopAfterthoughts": true}],
                   "quotes": [2, "single"],
+                  "semi": [2],
+                  "semi-spacing": [2],
 
                   "arrow-body-style": [2, "always"]
                 },
@@ -271,7 +273,70 @@ gulp.task('deploy', ['build', 'htmlDemo', 'rollupDemo', 'stylusDemo'], function 
              }));
 })
 
-gulp.task('karma', ['build'], function (done) {
+gulp.task('lintTests', function() {
+  return gulp.src(['tests/**/*.js'])
+             .pipe(plugins.eslint({
+               "parser": "babel-eslint",
+                "useEslintrc": false,
+                "rules": {
+                  "no-console": 1,
+                  "no-cond-assign": 2,
+                  "no-constant-condition": 2,
+                  "no-debugger": 2,
+                  "no-dupe-args": 2,
+                  "no-dupe-keys": 2,
+                  "no-duplicate-case": 2,
+                  "no-empty": 1,
+                  "no-extra-boolean-cast": 2,
+                  "no-extra-semi": 2,
+                  "no-func-assign": 2,
+                  "no-inner-declarations": 2,
+                  "no-unexpected-multiline": 1,
+                  "no-unreachable": 2,
+                  "no-unsafe-finally": 2,
+                  "use-isnan": 2,
+                  "valid-jsdoc": 2,
+                  "valid-typeof": 2,
+
+                  "curly": 2,
+                  "default-case": 2,
+                  "dot-location": 2,
+                  "dot-notation": 2,
+                  "eqeqeq": 2,
+                  "no-alert": 2,
+                  "no-empty-function": 2,
+                  "no-eval": 2,
+                  "no-floating-decimal": 2,
+                  "no-implied-eval": 2,
+                  "no-iterator": 2,
+                  "no-lone-blocks": 2,
+                  "no-loop-func": 2,
+                  "no-magic-numbers": 0,
+                  "no-multi-str": 2,
+                  "no-script-url": 2,
+                  "no-self-compare": 2,
+                  "no-with": 2,
+                  "init-declarations": [2, "always"],
+
+                  "brace-style": [2, "1tbs"],
+                  "camelcase": 2,
+                  "comma-dangle": 2,
+                  "indent": [2, 2],
+                  "no-lonely-if": 2,
+                  "no-plusplus": [2, {"allowForLoopAfterthoughts": true}],
+                  "quotes": [2, "single"],
+                  "semi": [2],
+                  "semi-spacing": [2],
+
+                  "arrow-body-style": [2, "always"]
+                },
+                global: [ 'self', 'opts', 'parentScope', 'domEvent' ]
+             }))
+             .pipe(plugins.eslint.format())
+             .pipe(plugins.eslint.failAfterError());
+});
+
+gulp.task('karma', ['build', 'lintTests'], function (done) {
   new KarmaServer({
     configFile: __dirname + '/tests/karma.conf.js'
   }, done).start();

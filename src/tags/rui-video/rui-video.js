@@ -15,7 +15,7 @@ self.checkForYoutube = function () {
   } else {
     setTimeout(self.checkForYoutube);
   }
-}
+};
 
 self.checkForVimeo = function () {
   if (self.vLoaded) {
@@ -27,7 +27,7 @@ self.checkForVimeo = function () {
   } else {
     setTimeout(self.checkForVimeo);
   }
-}
+};
 
 var lastWidth = 0;
 self.resizeIframe = function () {

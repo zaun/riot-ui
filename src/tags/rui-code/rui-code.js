@@ -12,7 +12,7 @@ self.checkForHighlight = function () {
   } else {
     setTimeout(self.checkForHighlight);
   }
-}
+};
 
 self.on('mount', function () {
   self.mounted = true;

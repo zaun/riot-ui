@@ -140,12 +140,12 @@ self.root.clear = function (focus) {
   if (focus) {
     self.root.focus();
   }
-}
+};
 
 self.root.focus = function () {
   self.root.querySelector('input').focus();
-}
+};
 
 self.root.blur = function () {
   self.root.querySelector('input').blur();
-}
+};

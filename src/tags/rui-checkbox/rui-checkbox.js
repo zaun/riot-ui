@@ -11,6 +11,14 @@ self.click = function (e) {
 };
 
 self.on('update', function (e) {
+  if (!self.isMounted) {
+    return;
+  }
+
   self.disabled = Object.prototype.hasOwnProperty.call(opts, 'disabled') ? opts.disabled === '' || opts.disabled === 'disabled' || opts.disabled === true : false;
   self.root.querySelector('span').setAttribute('data-disabled', this.disabled);
+});
+
+self.on('mount', function () {
+  self.update();
 });

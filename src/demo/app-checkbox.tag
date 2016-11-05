@@ -18,6 +18,13 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     </rui-panel-container>
     <rui-panel-container>
       <rui-code>
+        &lt;rui-checkbox&gt;Default Checkbox&lt;/rui-checkbox&gt;<br />
+        &lt;rui-checkbox option="primary"&gt;Primary Checkbox&lt;/rui-checkbox&gt;<br />
+        &lt;rui-checkbox option="secondary"&gt;Secondary Checkbox&lt;/rui-checkbox&gt;<br />
+        &lt;rui-checkbox option="success"&gt;Success Checkbox&lt;/rui-checkbox&gt;<br />
+        &lt;rui-checkbox option="info"&gt;Info Checkbox&lt;/rui-checkbox&gt;<br />
+        &lt;rui-checkbox option="warning"&gt;Warning Checkbox&lt;/rui-checkbox&gt;<br />
+        &lt;rui-checkbox option="danger"&gt;Danger Checkbox&lt;/rui-checkbox&gt;
       </rui-code>
     </rui-panel-container>
   </rui-panel>
@@ -33,6 +40,8 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     </rui-panel-container>
     <rui-panel-container>
       <rui-code>
+        &lt;rui-checkbox size="sm"&gt;Small Checkbox&lt;/rui-checkbox&gt;<br />
+        &lt;rui-checkbox size="lg"&gt;Large Checkbox&lt;/rui-checkbox&gt;
       </rui-code>
     </rui-panel-container>
   </rui-panel>
