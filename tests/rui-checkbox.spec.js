@@ -239,4 +239,69 @@ describe('rui-checkbox tests', function() {
     });
   });
 
+  it('Toggle Checkbox', function () {
+    // Create the tag
+    var el = document.createElement('rui-checkbox');
+    el.innerHTML = 'Test Checkbox';
+    document.body.appendChild(el);
+
+    // Mount the tag
+    var tag = riot.mount('rui-checkbox')[0];
+    expect(tag).toBeDefined();
+    expect(tag.isMounted).toBe(true);
+
+    var inp = el.querySelector('input');
+    var container = el.querySelector('span');
+
+    // Off
+    expect(container.getAttribute('data-checked')).toBeFalsy();
+    expect(inp.getAttribute('value')).toEqual('false');
+
+    container.click();
+
+    // On
+    expect(container.getAttribute('data-checked')).toEqual('true');
+    expect(inp.getAttribute('value')).toEqual('true');
+
+    container.click();
+
+    // Off
+    expect(container.getAttribute('data-checked')).toBeFalsy();
+    expect(inp.getAttribute('value')).toEqual('false');
+  });
+
+  it('Small size', function () {
+    // Create the tag
+    var el = document.createElement('rui-checkbox');
+    el.innerHTML = 'Test Checkbox';
+    el.setAttribute('size', 'sm');
+    document.body.appendChild(el);
+
+    // Mount the tag
+    var tag = riot.mount('rui-checkbox')[0];
+    expect(tag).toBeDefined();
+    expect(tag.isMounted).toBe(true);
+
+    // Wrapper div
+    var style = window.getComputedStyle(el.querySelector('span'));
+    expect(style.fontSize).toEqual('14px');
+  });
+
+  it('Large size', function () {
+    // Create the tag
+    var el = document.createElement('rui-checkbox');
+    el.innerHTML = 'Test Checkbox';
+    el.setAttribute('size', 'lg');
+    document.body.appendChild(el);
+
+    // Mount the tag
+    var tag = riot.mount('rui-checkbox')[0];
+    expect(tag).toBeDefined();
+    expect(tag.isMounted).toBe(true);
+
+    // Wrapper div
+    var style = window.getComputedStyle(el.querySelector('span'));
+    expect(style.fontSize).toEqual('20px');
+  });
+
 });
