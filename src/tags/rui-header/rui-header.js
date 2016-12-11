@@ -1,7 +1,7 @@
 window._rui = window._rui || {};
 window._rui.headers = window._rui.headers || {};
 
-function getOffset( elem ) {
+function getOffset (elem) {
   var offset = 0 - elem.offsetHeight;
   do {
     if (!isNaN(elem.offsetTop)) {
@@ -33,4 +33,8 @@ self.on('updated', function (e) {
     delete window._rui.headers[self.id];
   }
   self.bus.trigger('rui-toc-update');
+});
+
+self.on('mount', function (e) {
+  self.update();
 });

@@ -12,3 +12,7 @@ self.on('update', function (e) {
     self.label = Math.round(self.width) + '% Complete';
   }
 });
+
+self.on('mount', function (e) {
+  self.update();
+});

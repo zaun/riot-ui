@@ -154,7 +154,7 @@ self.on('mount', function () {
   self.display = opts.display ? opts.display : 'block';
   self.lat = opts.lat ? opts.lat : undefined;
   self.lng = opts.lng ? opts.lng : undefined;
-  self.icon = opts.hicon ? opts.icon : 'none';
+  self.icon = opts.icon ? opts.icon : 'none';
   self.xsZoom = opts.xsZoom ? opts.xsZoom : undefined;
   self.smZoom = opts.smZoom ? opts.smZoom : undefined;
   self.mdZoom = opts.mdZoom ? opts.mdZoom : undefined;
@@ -165,6 +165,13 @@ self.on('mount', function () {
   self.googleKey = opts.googleKey ? opts.googleKey : undefined;
   self.bingKey = opts.bingKey ? opts.bingKey : undefined;
 
+  if (self.lat) {
+    self.lat = parseInt(self.lat);
+  }
+  if (self.lng) {
+    self.lng = parseInt(self.lng);
+  }
+
   if (self.googleKey) {
     self.loadScript('https://maps.googleapis.com/maps/api/js?key=' + self.googleKey);
     self.checkForGoogleMap();
@@ -172,19 +179,13 @@ self.on('mount', function () {
     self.loadScript('https://www.bing.com/api/maps/mapcontrol?branch=release');
     self.checkForBingMap();
   }
-
-  if (self.lat) {
-    self.lat = parseInt(self.lat);
-  }
-  if (self.lng) {
-    self.lng = parseInt(self.lng);
-  }
 });
 
 self.on('update', function () {
   if (self.loaded) {
     self.lat = opts.lat ? opts.lat : undefined;
     self.lng = opts.lng ? opts.lng : undefined;
+    self.icon = opts.icon ? opts.icon : 'none';
     self.xsZoom = opts.xsZoom ? opts.xsZoom : undefined;
     self.smZoom = opts.smZoom ? opts.smZoom : undefined;
     self.mdZoom = opts.mdZoom ? opts.mdZoom : undefined;

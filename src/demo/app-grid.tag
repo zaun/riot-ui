@@ -95,6 +95,15 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     </rui-panel-container>
     <rui-panel-container>
       <rui-code>
+        &lt;rui-container&gt;<br />
+        &nbsp;&lt;rui-row&gt;<br />
+        &nbsp;&nbsp;&lt;rui-col sm="100" xl-visible&gt;xl-visible: Visible on extra-large and above&lt;/rui-col&gt;<br />
+        &nbsp;&nbsp;&lt;rui-col sm="100" lg-visible&gt;lg-visible: Visible on large and above&lt;/rui-col&gt;<br />
+        &nbsp;&nbsp;&lt;rui-col sm="100" md-visible&gt;md-visible: Visible on medium and above&lt;/rui-col&gt;<br />
+        &nbsp;&nbsp;&lt;rui-col sm="100" sm-visible&gt;sm-visible: Visible on small and above&lt;/rui-col&gt;<br />
+        &nbsp;&nbsp;&lt;rui-col sm="100" xs-visible&gt;xs-visible: Visible on extra-small and above&lt;/rui-col&gt;<br />
+        &nbsp;&lt;/rui-row&gt;<br />
+        &lt;/rui-container&gt;
       </rui-code>
     </rui-panel-container>
   </rui-panel>
@@ -114,6 +123,15 @@ import { domEvent, parentScope } from 'riot-mixin-pack'
     </rui-panel-container>
     <rui-panel-container>
       <rui-code>
+        &lt;rui-container&gt;<br />
+        &nbsp;&lt;rui-row&gt;<br />
+        &nbsp;&nbsp;&lt;rui-col sm="100" xl-hidden&gt;xl-hidden: Hide on extra-large and below&lt;/rui-col&gt;<br />
+        &nbsp;&nbsp;&lt;rui-col sm="100" lg-hidden&gt;lg-hidden: Hide on large and below&lt;/rui-col&gt;<br />
+        &nbsp;&nbsp;&lt;rui-col sm="100" md-hidden&gt;md-hidden: Hide on medium and below&lt;/rui-col&gt;<br />
+        &nbsp;&nbsp;&lt;rui-col sm="100" sm-hidden&gt;sm-hidden: Hide on small and below&lt;/rui-col&gt;<br />
+        &nbsp;&nbsp;&lt;rui-col sm="100" xs-hidden&gt;xs-hidden: Hide on extra-small and below&lt;/rui-col&gt;<br />
+        &nbsp;&lt;/rui-row&gt;<br />
+        &lt;/rui-container&gt;<br />
       </rui-code>
     </rui-panel-container>
   </rui-panel>

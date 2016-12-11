@@ -165,3 +165,7 @@ self.on('update', function () {
   var svg = self.b64DecodeUnicode(b64);
   self.root.querySelector('span').innerHTML = svg;
 });
+
+self.on('mount', function (e) {
+  self.update();
+});
