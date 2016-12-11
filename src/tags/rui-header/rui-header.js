@@ -38,3 +38,8 @@ self.on('updated', function (e) {
 self.on('mount', function (e) {
   self.update();
 });
+
+self.on('before-unmount', function () {
+  delete window._rui.headers[self.id];
+  self.bus.trigger('rui-toc-update');
+});
