@@ -14,8 +14,15 @@ module.exports = function(config) {
       '../build/lib/rui-full.js'
     ],
     preprocessors: {
+      '../build/lib/*.js': 'coverage'
     },
-    reporters: ['kjhtml', 'spec'],
+    coverageReporter: {
+      type: 'lcov',
+      dir: '../build/coverage/',
+      subdir: '.',
+      includeAllSources: true
+    },
+    reporters: ['kjhtml', 'spec', 'coverage'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

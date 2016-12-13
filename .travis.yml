@@ -5,3 +5,4 @@ branches:
   - master
 before_script: npm install -g gulp
 script: gulp; gulp karma
+after_success: gulp coverage

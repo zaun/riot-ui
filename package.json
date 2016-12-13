@@ -33,7 +33,9 @@
   "devDependencies": {
     "babel-eslint": "*",
     "browser-sync": "*",
+    "coveralls": "*",
     "gulp": "*",
+    "gulp-coveralls": "*",
     "gulp-eslint": "*",
     "gulp-filelist": "github:cjroth/gulp-filelist",
     "gulp-flatten": "*",
@@ -47,6 +49,7 @@
     "jasmine": "*",
     "karma": "*",
     "karma-chrome-launcher": "*",
+    "karma-coverage": "*",
     "karma-html2js-preprocessor": "*",
     "karma-jasmine": "*",
     "karma-jasmine-html-reporter": "*",

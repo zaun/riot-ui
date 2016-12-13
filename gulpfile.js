@@ -342,6 +342,11 @@ gulp.task('karma', ['build', 'lintTests'], function (done) {
   }, done).start();
 });
 
+gulp.task('coverage', ['karma'], function () {
+  return gulp.src('./build/coverage/lcov.info')
+    .pipe(plugins.coveralls());
+});
+
 gulp.task('dist', ['build', 'rollupDist']);
 
 gulp.task('build', ['javascript', 'stylus', 'html', 'process', 'rollup']);
